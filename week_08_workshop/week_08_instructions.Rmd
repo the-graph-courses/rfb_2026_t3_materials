@@ -1,0 +1,54 @@
+---
+title: "Atelier 8 : Graphiques à bulles, échelles, thèmes et {plotly}"
+output:
+  prettydoc::html_pretty:
+    theme: architect
+    toc: true
+    number_sections: false
+author: "The GRAPH Courses"
+date: "2024-03-06"
+editor_options: 
+  chunk_output_type: inline
+  markdown: 
+  wrap: none
+---
+
+# Introduction
+
+Bienvenue !
+
+Cet atelier est une approche pratique de la visualisation de données et de la révision de certaines fonctions {dplyr} avec lesquelles vous êtes déjà familier.
+
+Les notes de cours de cette semaine sont liées ci-dessous. Elles peuvent être très utiles pour accomplir l'exercice, n'hésitez donc pas à vous y référer pendant l'atelier !
+
+- [Introduction à ggplot2](https://the-graph-courses.github.io/data_on_display_wp/lessons/fr_ls01_gg_intro.html)
+
+- [Graphiques de dispersion et lissage](https://the-graph-courses.github.io/data_on_display_wp/lessons/fr_ls02_scatter.html)
+
+# Configuration pour l'exercice
+
+1. **Téléchargez d'abord le dépôt sur votre ordinateur local.** Pour commencer, téléchargez, décompressez et parcourez le dossier d'exercice.
+
+2. **Ouvrez le projet RStudio** en cliquant sur le fichier *.Rproj* pertinent dans le dossier de l'atelier décompressé. Assurez-vous d'avoir ouvert week_08_workshop.Rproj dans RStudio en regardant le nom de votre fenêtre RStudio, ou dans le coin supérieur droit de votre écran.
+
+3. **Ouvrez le fichier Rmd de l'exercice.** Accédez à l'onglet Fichiers dans RStudio et ouvrez le dossier "rmd". Vous travaillerez dans le fichier appelé "week_08_exercise.Rmd". Cet Rmd contient à la fois les instructions et l'exercice de l'atelier dans un seul fichier.
+
+4. **Complétez l'exercice.** Suivez les étapes dans "week_08_exercise.Rmd". Remplacez chaque instance de `"ÉCRIVEZ_VOTRE_CODE_ICI"` par vos réponses. L'exercice doit être soumis individuellement, mais vous êtes encouragé à réfléchir en groupe. Bien que vous soyez autorisé à travailler avec des membres du groupe, *il est important que tout le code que vous soumettez soit tapé par vous-même*.
+
+# Qu'est-ce que les Graphiques à Bulles?
+
+Un **graphique à bulles** est un type de graphique de dispersion où une troisième dimension est ajoutée : une variable numérique supplémentaire est représentée par la **taille** des points.
+
+En février 2006, un médecin suédois et défenseur des données nommé Hans Rosling a donné une célèbre conférence TED intitulée ["Les meilleures statistiques que vous ayez jamais vues"](https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen) où il a présenté des données économiques, sanitaires et de développement mondiales compilées par la Fondation Gapminder.
+
+La conférence présentait un célèbre graphique à bulles similaire à celui-ci :
+
+![](https://blogs.sas.com/content/sastraining/files/2019/01/wealth_build4-3.png)
+
+Ici, les points affichent une relation entre deux variables numériques sur chaque axe, ainsi qu'une troisième variable numérique : la taille de la bulle représente la population.
+
+Remarquez que l'axe des x utilise une échelle logarithmique, pas une échelle linéaire. Cela permet d'éviter d'encombrer les points. Dans cet exercice, nous allons transformer les axes de notre graphique afin de reproduire le graphique à bulles de Gapminder aussi fidèlement que possible.
+
+# Soumission : Téléchargez le fichier Rmd
+
+Une fois que vous avez terminé les tâches ci-dessus, vous devez sauvegarder vos réponses et télécharger votre fichier Rmd d'exercice sur la page web de l'atelier. Vous devez télécharger un seul fichier Rmd avec vos réponses (ne téléchargez pas le HTML tricoté ou un dossier compressé). Assurez-vous d'inclure votre nom dans l'en-tête YAML en haut du script.

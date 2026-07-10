@@ -224,5 +224,3 @@ Choisissez et mettez en évidence un aspect de votre code ou de votre graphique 
 # Soumission
 
 Une fois que vous avez terminé les tâches ci-dessus, vous devriez sauvegarder vos réponses et télécharger votre Rmd de devoir sur la page web de l'atelier. Vous devriez télécharger juste un fichier Rmd avec vos réponses (ne téléchargez pas le HTML tricoté ou un dossier zippé). Assurez-vous d'inclure votre nom dans l'en-tête YAML en haut du script.
-
-La date limite pour le devoir est le vendredi 16 février à 23h59 UTC.

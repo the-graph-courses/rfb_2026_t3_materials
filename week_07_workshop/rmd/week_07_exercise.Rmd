@@ -325,8 +325,6 @@ Choisissez et mettez en avant un aspect de l'atelier qui serait utile et intére
 
 Une fois les tâches ci-dessus terminées, vous devez enregistrer vos réponses et télécharger votre fichier Rmd d'exercice sur la page web de l'atelier. Vous devez télécharger un seul fichier Rmd avec vos réponses (ne téléchargez pas le HTML tricoté ou un dossier compressé). Assurez-vous d'inclure votre nom dans l'en-tête YAML en haut du script.
 
-La date limite pour l'exercice est le **vendredi 1 mars à 23h59 UTC**.
-
 # Défi (optionnel)
 
 Vous avez terminé tôt ? Essayez cet exercice facultatif.

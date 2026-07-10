@@ -27,8 +27,6 @@ Consultez les notes de leçon suivantes pendant l'atelier :
 
 -   [R Markdown](https://the-graph-courses.github.io/r_foundations_wp/lessons/FR_ls06_rmarkdown.html)
 
-La date limite pour rendre l'exercice est le vendredi 2 février à 23h59 UTC.
-
 ------------------------------------------------------------------------
 
 # Téléchargement et ouverture de l'exercice

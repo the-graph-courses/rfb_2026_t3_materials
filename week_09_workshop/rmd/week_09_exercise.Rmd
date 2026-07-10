@@ -188,8 +188,6 @@ Choisissez et mettez en évidence un aspect de l'atelier qui serait utile et int
 
 Une fois que vous avez terminé les tâches ci-dessus, vous devriez enregistrer vos réponses et télécharger votre exercice Rmd sur la page web de l'atelier. Vous devriez télécharger un seul fichier Rmd avec vos réponses (ne téléchargez pas le HTML tricoté ou un dossier compressé). Assurez-vous d'inclure votre nom dans l'en-tête YAML en haut du script.
 
-La date limite pour l'exercice est le **vendredi 15 mars à 23h59 UTC**.
-
 # Défi bonus : Fonctions d'échelle de couleur
 
 Saviez-vous que les fonctions `scale_*_()` sont également utilisées pour personnaliser les palettes de couleurs des graphiques `{ggplot2}` ?

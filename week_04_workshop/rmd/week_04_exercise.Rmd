@@ -23,7 +23,7 @@ Pour l'exercice de cette semaine, vous effectuerez une nouvelle tâche en tant q
 
 Les notes de cours (liens ci-dessus) peuvent être très utiles pour accomplir l'exercice ci-dessous, alors n'hésitez pas à les consulter pendant l'atelier !
 
-La date limite pour l'exercice est le vendredi 9 février à 23h59 UTC. L'exercice doit être soumis individuellement, mais vous êtes encouragé à brainstormer avec vos partenaires.
+L'exercice doit être soumis individuellement, mais vous êtes encouragé à brainstormer avec vos partenaires.
 
 # Configuration
 
