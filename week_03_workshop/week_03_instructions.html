@@ -11,9 +11,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
-<meta name="date" content="2024-01-31" />
 
-<title>Atelier 3 Instructions: Rapports Rmd</title>
+<title>Atelier 3 Instructions : Rapports Rmd</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -28,10 +27,85 @@ document.addEventListener('DOMContentLoaded', function(e) {
   }
 });
 </script>
+<style type="text/css">.tabwid {
+font-size: initial;
+padding-bottom: 1em;
+}
+.tabwid table{
+border-spacing:0px !important;
+border-collapse:collapse;
+line-height:1;
+margin-left:auto;
+margin-right:auto;
+border-width: 0;
+border-color: transparent;
+caption-side: top;
+}
+.tabwid-caption-bottom table{
+caption-side: bottom;
+}
+.tabwid_left table{
+margin-left:0;
+}
+.tabwid_right table{
+margin-right:0;
+}
+.tabwid td, .tabwid th {
+padding: 0;
+}
+.tabwid a {
+text-decoration: none;
+}
+.tabwid thead {
+background-color: transparent;
+}
+.tabwid tfoot {
+background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+.katex-display {
+margin: 0 0 !important;
+}
+</style>
+<script>document.addEventListener("DOMContentLoaded", function(event) {
+  var els = document.querySelectorAll(".tabwid");
+  var tabwid_link = document.querySelector('link[href*="tabwid.css"]')
+  if (tabwid_link === null) {
+    const tabwid_styles = document.evaluate("//style[contains(., 'tabwid')]", document, null, XPathResult.ANY_TYPE, null );
+    tabwid_link = tabwid_styles.iterateNext();
+  }
+
+  Array.prototype.forEach.call(els, function(template) {
+      const dest = document.createElement("div");
+      template.parentNode.insertBefore(dest, template.nextSibling)
+      dest.setAttribute("class", "flextable-shadow-host");
+      const fantome = dest.attachShadow({mode: 'open'});
+      fantome.appendChild(template);
+      if (tabwid_link !== null) {
+        fantome.appendChild(tabwid_link.cloneNode(true));
+      }
+  });
+
+  const shadowHosts = document.querySelectorAll('.flextable-shadow-host:not(:has(div > table.no-shadow-dom))');
+  shadowHosts.forEach(host => {
+    if (host.shadowRoot) {
+      const spanElements = host.shadowRoot.querySelector('div > table > caption > span[id]');
+      if (spanElements) {
+        const id = spanElements.getAttribute("id");
+        host.setAttribute("id", id);
+      }
+    }
+  });
+
+});
+</script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -139,8 +213,7 @@ pointer-events: auto;
 
 <header>
 <div class="inner">
-<h1 class="title toc-ignore">Atelier 3 Instructions: Rapports Rmd</h1>
-<h3 class="date">2024-01-31</h3>
+<h1 class="title toc-ignore">Atelier 3 Instructions : Rapports Rmd</h1>
 </div>
 </header>
 
@@ -148,19 +221,16 @@ pointer-events: auto;
 <div id="TOC" class="toc">
 <div class="inner">
 <ul>
+<li><a href="#v%C3%A9rifiez-que-lexercice-est-ouvert-correctement" id="toc-vérifiez-que-lexercice-est-ouvert-correctement">Vérifiez que
+l’exercice est ouvert correctement</a></li>
 <li><a href="#introduction" id="toc-introduction">Introduction</a></li>
-<li><a href="#téléchargement-et-ouverture-de-lexercice" id="toc-téléchargement-et-ouverture-de-lexercice">Téléchargement et
-ouverture de l’exercice</a></li>
-<li><a href="#étapes-pour-compléter-lexercice" id="toc-étapes-pour-compléter-lexercice">Étapes pour compléter
-l’exercice</a></li>
-<li><a href="#défi-bonus-facultatif" id="toc-défi-bonus-facultatif">Défi
-Bonus (Facultatif)</a>
+<li><a href="#%C3%A9tapes" id="toc-étapes">Étapes</a>
 <ul>
-<li><a href="#défi-1-utiliser-patchwork-pour-combiner-des-images" id="toc-défi-1-utiliser-patchwork-pour-combiner-des-images">Défi 1 :
-Utiliser patchwork pour combiner des images</a></li>
-<li><a href="#défi-2-utiliser-des-crochets-carrés-dans-le-code-en-ligne" id="toc-défi-2-utiliser-des-crochets-carrés-dans-le-code-en-ligne">Défi
-2 : Utiliser des crochets carrés dans le code en ligne</a></li>
+<li><a href="#d%C3%A9fi-facultatif" id="toc-défi-facultatif">DÉFI
+FACULTATIF :</a></li>
 </ul></li>
+<li><a href="#soumettre-lexercice-de-latelier-3" id="toc-soumettre-lexercice-de-latelier-3">Soumettre l’exercice de
+l’Atelier 3</a></li>
 </ul>
 </div>
 </div>
@@ -168,118 +238,138 @@ Utiliser patchwork pour combiner des images</a></li>
 <div id="content-wrapper">
   <div class="inner clearfix">
     <section id="main-content">
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>Bienvenue !</p>
-<p>Dans l’exercice de cette semaine, vous allez appliquer vos
-connaissances en R acquises lors des deux leçons de préparation de cette
-semaine :</p>
-<p>Consultez les notes de leçon suivantes pendant l’atelier :</p>
+<div id="vérifiez-que-lexercice-est-ouvert-correctement" class="section level1">
+<h1>Vérifiez que l’exercice est ouvert correctement</h1>
+<p>Avant de continuer, vérifiez ces deux points. Une erreur ici est la
+cause la plus fréquente de problèmes plus tard, alors corrigez-la
+maintenant si nécessaire :</p>
 <ul>
-<li><p><a href="https://the-graph-courses.github.io/r_foundations_wp/lessons/FR_ls07_data_structures.html">Structures
-de Données</a></p></li>
-<li><p><a href="https://the-graph-courses.github.io/r_foundations_wp/lessons/FR_ls06_rmarkdown.html">R
-Markdown</a></p></li>
+<li><p><strong>Le dossier doit être entièrement décompressé.</strong> Si
+vous avez ouvert les fichiers directement depuis le fichier zip (par
+exemple en double-cliquant à l’intérieur du zip), fermez tout, faites un
+clic droit sur week_03_workshop.zip et choisissez « <strong>Extraire
+tout</strong> », puis travaillez à partir du dossier extrait.</p></li>
+<li><p><strong>Le projet doit être ouvert via « week_03_workshop.Rproj
+».</strong> Si vous avez ouvert un script directement (sans passer par
+le .Rproj), fermez-le et double-cliquez plutôt sur
+week_03_workshop.Rproj. Vous saurez que c’est bon lorsque le nom du
+projet apparaît en haut à droite de RStudio. C’est ce qui garantit que
+<code>here()</code> et les chemins de fichiers fonctionneront
+correctement.</p></li>
 </ul>
 <hr />
 </div>
-<div id="téléchargement-et-ouverture-de-lexercice" class="section level1">
-<h1>Téléchargement et ouverture de l’exercice</h1>
-<ol style="list-style-type: decimal">
-<li><p><strong>Téléchargez le dossier de l’atelier</strong> en cliquant
-sur le bouton “Télécharger le code de l’atelier” sur la page de
-l’atelier du sujet ATELIER 3 de la <a href="https://thegraphcourses.org/courses/rfb-q1-2024/atelier-3">page du
-cours</a>.</p></li>
-<li><p><strong>Décompressez le dossier week_03_workshop.zip</strong>. Si
-vous êtes sur PC, allez dans votre dossier Téléchargements, faites un
-clic droit sur le fichier zip téléchargé et cliquez sur
-“<strong>Extraire tout</strong>”.</p></li>
-<li><p><strong>IMPORTANT</strong> : cliquez sur le fichier projet
-RStudio appelé “week_03_workshop.Rproj” dans le dossier décompressé pour
-ouvrir le projet dans RStudio.</p></li>
-</ol>
-<hr />
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
 <p>Votre tâche consistera à créer un court rapport basé sur R Markdown
-comparant la distribution de <strong>DEUX VARIABLES
-CATÉGORIELLES</strong> dans le jeu de données <em>India TB
-pathways</em>. Vous pourriez comparer, par exemple, le niveau
-d’éducation et l’habitude de fumer, ou l’emploi et le lieu de visite, ou
-la consommation d’alcool et le diabète - n’importe quelles deux
-variables de votre choix.</p>
-<p><strong>Le rapport doit contenir ces trois choses :</strong></p>
+examinant la distribution d’une <strong>VARIABLE CATÉGORIELLE</strong>
+de votre choix dans le jeu de données <em>India TB pathways</em>. Par
+exemple, vous pourriez examiner la distribution de
+<code>tb_status</code> ou de <code>treatment_type</code>.</p>
+<p><strong>Le rapport doit contenir :</strong></p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Un graphique créé avec {ggplot2}/{esquisse}</p></li>
-<li><p>Un tableau créé avec {flextable} ou un autre package de tableau
-dans R.</p></li>
-<li><p>Au moins une utilisation de <em>code R en ligne</em> dans le
-Rmd.</p></li>
+<li><p>Un graphique de vos données créé avec
+{ggplot2}/{esquisse}</p></li>
+<li><p>Un tableau récapitulatif de vos données créé avec {flextable} ou
+un autre package de tableau (par exemple {reactable}).</p></li>
 </ol>
 </div>
-<div id="étapes-pour-compléter-lexercice" class="section level1">
-<h1>Étapes pour compléter l’exercice</h1>
+<div id="étapes" class="section level1">
+<h1>Étapes</h1>
 <ol style="list-style-type: decimal">
-<li><p><strong>Créez un nouveau fichier Rmd</strong> (pas un script R !)
-dans le dossier “rmd” et donnez-lui un nom approprié (par exemple,
-tb_rapport_VOTRE_NOM.Rmd).</p></li>
-<li><p><strong>Copiez l’en-tête YAML</strong> du rapport d’exemple dans
-votre nouveau fichier.</p></li>
-<li><p><strong>Créez un nouveau chunk de code</strong> pour le
-chargement des packages et <strong>chargez les packages
-nécessaires</strong>. (Reportez-vous au rapport d’exemple pour des
-indices sur les packages que vous pourriez avoir besoin.) Assurez-vous
-d’utiliser les bonnes options de chunk !</p></li>
-<li><p><strong>Ajoutez une courte description</strong> du jeu de données
-India TB, similaire à celle des accidents de moto en Colombie dans le
-rapport d’exemple, sous un nouveau <em>titre de section</em>. Les
-informations sur le jeu de données se trouvent dans le dossier
-“data”.</p>
-<ul>
-<li>Rappelez-vous que les <em>titres de section</em> apparaîtront en
-grand texte dans votre rapport final, évitez donc d’utiliser des noms
-comme “Nettoyage des données”. Gardez ces notes cachées dans des chunks
-de code à la place.</li>
-</ul></li>
-<li><p><strong>Créez un NOUVEAU chunk de code</strong> dans lequel vous
-importez le jeu de données India TB. <strong>Donnez au dataframe un
-titre court et descriptif</strong>. N’oubliez pas d’utiliser la fonction
-<code>here()</code> lors du chargement du CSV, sinon le chargement des
-données pourrait ne pas fonctionner.</p>
+<li><p>Après avoir ouvert le projet RStudio téléchargé, <strong>tricotez
+le fichier <code>example_report_exercise.Rmd</code></strong> pour voir
+un exemple de ce à quoi ressemble un bon rapport.</p></li>
+<li><p>Maintenant, <strong>créez un nouveau fichier Rmd</strong> (pas un
+script R !) dans le dossier <em>« rmd »</em> et donnez-lui un nom
+approprié (par exemple, tb_rapport_VOTRE_NOM.Rmd).</p></li>
+<li><p><strong>Copiez l’en-tête YAML</strong> ci-dessous dans votre
+nouveau fichier Rmd.</p></li>
+</ol>
+<pre><code>---
+title: &quot;India TB Pathways&quot;
+output: prettydoc::html_pretty
+author: &quot;VOTRE NOM ICI&quot;
+---</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Créez un nouveau chunk de code pour le chargement des packages et
+<strong>chargez les packages nécessaires</strong>. Vous aurez besoin de
+charger <code>tidyverse</code>, <code>here</code>, <code>janitor</code>,
+<code>esquisse</code> et <code>flextable</code>.</p>
 <ul>
 <li>Astuce : Vous pouvez utiliser Ctrl+Alt+I pour insérer un nouveau
 chunk de code dans votre rmd.</li>
+<li>Astuce : Vous devriez utiliser <code>echo = FALSE</code> et
+<code>message = FALSE</code> dans ce chunk de code pour empêcher les
+messages de chargement des packages d’être imprimés dans votre
+rapport.</li>
 </ul></li>
-<li><p><strong>Inspectez le dataframe</strong> et <strong>choisissez
-deux variables catégorielles pour votre analyse</strong>. Une fois que
-vous et votre groupe avez choisi vos variables souhaitées, vous pouvez
-procéder à la création des trois exigences pour l’exercice (créer
-graphique, créer tableau, et utilisation de code en ligne).</p></li>
-<li><p><strong>Créez un graphique avec esquisse</strong>. Rappelez-vous
-que les noms de variables dans esquisse sont codés par couleur en
-fonction du type de données. Les variables catégorielles sont
-<em>orange</em>.</p>
+<li><p>Sous un <em>titre de section</em> approprié, <strong>ajoutez la
+description textuelle suivante</strong> du jeu de données India TB
+:</p></li>
+</ol>
+<p>Le jeu de données India TB Pathways analyse les coûts
+pré-diagnostiques et le comportement de recherche de soins de 880
+nouveaux patients adultes atteints de tuberculose à Vellore, dans le
+Tamil Nadu.</p>
+<ol start="6" style="list-style-type: decimal">
+<li><p>Créez un <strong>nouveau chunk de code</strong> dans lequel vous
+importez le jeu de données India TB depuis votre dossier data.
+Appelez-le <code>india_tb</code>. Vous devriez utiliser
+<code>read_csv()</code> et <code>here()</code> pour charger les données.
+(Consultez le manuel du cours <a href="https://datawithr.com">en
+ligne</a> si vous avez besoin d’un rappel.)</p>
 <ul>
-<li>Astuce : Un bon moyen de visualiser deux variables catégorielles est
-avec un <em>graphique à barres empilées</em>. Vous pouvez en créer un
-dans esquisse en ajoutant une variable à “X” ou “Y” et la deuxième
-variable à “Fill”.</li>
+<li>Astuce : Après l’importation, vous pouvez utiliser la fonction
+<code>clean_names()</code> du package <code>janitor</code> pour nettoyer
+les noms de variables. Cela supprime les espaces et les caractères
+spéciaux des noms de variables, ce qui les rend plus faciles à
+manipuler. Consultez le rapport d’exemple pour voir comment
+procéder.</li>
 </ul></li>
-<li><p><strong>Créez un tableau en utilisant {flextable} ou
-{gt}</strong>. Vous devriez résumer les MÊMES deux variables que vous
-avez choisies pour le tracé ci-dessus. N’oubliez pas d’utiliser les
-options de chunk appropriées pour que seul le joli tableau soit imprimé
-(voir le rapport d’exemple pour des indices).</p>
+<li><p>Une fois votre jeu de données chargé, inspectez le dataframe et
+<strong>choisissez une variable catégorielle pour votre
+analyse</strong>.</p>
 <ul>
-<li>Remarque: Vous pouvez créer un tableau de fréquence en utilisant la
-fonction <code>tabyl()</code>, mais cela crée un dataframe qui n’est pas
-très présentable dans un rapport.</li>
+<li>Astuce : Inspectez votre dataframe à l’aide de fonctions enseignées
+dans nos leçons précédentes telles que <code>head()</code>,
+<code>summary()</code> et <code>glimpse()</code>. Si vous utilisez
+<code>View()</code> dans votre script, n’oubliez pas de le retirer avant
+de tricoter votre rapport, car cela interromprait le processus de
+tricotage.</li>
 </ul></li>
-<li><p><strong>Mettez en évidence des nombres spécifiques</strong> des
-données en utilisant <strong>du code en ligne</strong>. Voir le rapport
-d’exemple Rmd pour des indices !</p></li>
-<li><p><strong>Tricotez votre rapport</strong> ! Cette partie finale et
-la plus importante.</p>
+<li><p>Sous un titre de section approprié, <strong>créez un graphique
+informatif de votre variable choisie</strong> en utilisant {esquisse} et
+{ggplot2}. Pour lancer esquisse sur le dataframe <code>india_tb</code>,
+vous utiliseriez le chunk de code ci-dessous :</p></li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>esquisse<span class="sc">::</span><span class="fu">esquisser</span>(india_tb)</span></code></pre></div>
 <ul>
-<li>Remarque: Avant de tricoter, assurez-vous de supprimer ou de
+<li>Après avoir fini d’utiliser esquisse, ASSUREZ-VOUS de retirer la
+fonction <code>esquisse::esquisser()</code> de votre fichier Rmd. Sinon,
+chaque fois que vous tricoterez votre fichier Rmd, esquisse s’ouvrira et
+restera bloqué !</li>
+</ul>
+<ol start="9" style="list-style-type: decimal">
+<li><p><strong>Créez un tableau</strong> en utilisant {janitor} et
+{flextable} pour résumer la distribution de votre variable choisie.</p>
+<ul>
+<li>Voici un exemple de création d’un tableau de fréquence avec
+<code>tabyl()</code>, puis de sa mise en forme avec
+<code>flextable()</code>, en utilisant le dataframe <code>iris</code>
+:</li>
+</ul></li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>freq_df <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">tabyl</span>(Species)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">flextable</span>(freq_df)</span></code></pre></div>
+<div class="tabwid"><style>.cl-0ada6d68{}.cl-0ad54fe0{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-0ad75286{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-0ad75290{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-0ad769b0{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0ad769b1{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0ad769b2{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0ad769ba{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0ad769bb{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0ad769c4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-0ada6d68"><thead><tr style="overflow-wrap:break-word;"><th class="cl-0ad769b0"><p class="cl-0ad75286"><span class="cl-0ad54fe0">Species</span></p></th><th class="cl-0ad769b1"><p class="cl-0ad75290"><span class="cl-0ad54fe0">n</span></p></th><th class="cl-0ad769b1"><p class="cl-0ad75290"><span class="cl-0ad54fe0">percent</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-0ad769b2"><p class="cl-0ad75286"><span class="cl-0ad54fe0">setosa</span></p></td><td class="cl-0ad769ba"><p class="cl-0ad75290"><span class="cl-0ad54fe0">50</span></p></td><td class="cl-0ad769ba"><p class="cl-0ad75290"><span class="cl-0ad54fe0">0.3333333</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0ad769b2"><p class="cl-0ad75286"><span class="cl-0ad54fe0">versicolor</span></p></td><td class="cl-0ad769ba"><p class="cl-0ad75290"><span class="cl-0ad54fe0">50</span></p></td><td class="cl-0ad769ba"><p class="cl-0ad75290"><span class="cl-0ad54fe0">0.3333333</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0ad769bb"><p class="cl-0ad75286"><span class="cl-0ad54fe0">virginica</span></p></td><td class="cl-0ad769c4"><p class="cl-0ad75290"><span class="cl-0ad54fe0">50</span></p></td><td class="cl-0ad769c4"><p class="cl-0ad75290"><span class="cl-0ad54fe0">0.3333333</span></p></td></tr></tbody></table></div>
+<ol start="10" style="list-style-type: decimal">
+<li><p>Ajoutez une courte description textuelle expliquant ce que
+montrent votre graphique et votre tableau.</p></li>
+<li><p>La partie finale et la plus importante - <strong>tricotez votre
+rapport</strong> !</p>
+<ul>
+<li>Astuce : Avant de tricoter, assurez-vous de supprimer ou de
 commenter toutes les instances de <code>esquisser()</code> ou
 <code>View()</code>. C’est parce que les fonctions qui ouvrent de
 nouvelles fenêtres interrompront le processus de tricotage. Vous devrez
@@ -288,100 +378,22 @@ rapport. Soyez patient et demandez de l’aide aux instructeurs si vous
 êtes bloqué.</li>
 </ul></li>
 </ol>
-<p>Pour soumettre votre travail, veuillez télécharger <strong>JUSTE
-VOTRE Rmd</strong> sur la page de soumission. Mais assurez-vous que le
-Rmd peut être tricoté avec succès avant de le télécharger.</p>
-<hr />
+<div id="défi-facultatif" class="section level2">
+<h2>DÉFI FACULTATIF :</h2>
+<p><strong>Utilisez du code en ligne</strong> pour mettre en évidence
+des nombres spécifiques des données. Vous pouvez vous référer au fichier
+<em>« example_report_exercise.Rmd »</em> pour des indices sur la manière
+de procéder.</p>
 </div>
-<div id="défi-bonus-facultatif" class="section level1">
-<h1>Défi Bonus (Facultatif)</h1>
-<p>Vous avez terminé tôt ? Essayez un ou les deux exercices de défi
-ci-dessous.</p>
-<div id="défi-1-utiliser-patchwork-pour-combiner-des-images" class="section level2">
-<h2>Défi 1 : Utiliser patchwork pour combiner des images</h2>
-<p>OBJECTIF : Utiliser les opérations <code>{patchwork}</code> dans
-votre rapport Rmd et assembler deux graphiques !</p>
-<p>Le package <code>{patchwork}</code> vous permet de combiner plusieurs
-graphiques en un seul, ce qui peut faciliter la comparaison des
-graphiques et garder votre visualisation de données ordonnée et
-organisée.</p>
-<p>Prenons un exemple simple. Supposons que nous ayons deux graphiques
-appelés <code>plot1</code> et <code>plot2</code> :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># charger les packages requis</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, patchwork)</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co"># Créer plot1</span></span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> hp)) <span class="sc">+</span></span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>         <span class="fu">geom_point</span>() </span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co"># Créer plot2</span></span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> disp)) <span class="sc">+</span></span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>         <span class="fu">geom_point</span>()</span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co"># Combiner les graphiques verticalement avec patchwork</span></span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>combined_plot <span class="ot">&lt;-</span> plot1 <span class="sc">/</span> plot2</span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a>combined_plot</span></code></pre></div>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
-<p>Dans cet exemple, l’opérateur <code>/</code> est utilisé pour
-disposer les graphiques verticalement, avec <code>plot1</code> en haut
-et <code>plot2</code> en bas.</p>
-<p>Si vous vouliez que les graphiques soient disposés horizontalement,
-vous utiliseriez l’opérateur <code>+</code> à la place :</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Combiner les graphiques verticalement avec patchwork</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>combined_plot_2 <span class="ot">&lt;-</span> plot1 <span class="sc">+</span> plot2</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>combined_plot_2</span></code></pre></div>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
 </div>
-<div id="défi-2-utiliser-des-crochets-carrés-dans-le-code-en-ligne" class="section level2">
-<h2>Défi 2 : Utiliser des crochets carrés dans le code en ligne</h2>
-<p>OBJECTIF : Extraire des nombres d’un dataframe en utilisant la
-notation des crochets carrés, et les afficher dans votre rapport tricoté
-avec du code en ligne.</p>
-<p>Dans R markdown, nous utilisons une syntaxe spécifique pour inclure
-du code R en ligne, qui est du code R qui s’exécute dans le texte de
-votre document. Pour utiliser du code R en ligne, nous incluons
-simplement le code R entre des backticks et le précédons d’un
-<code>r</code> comme ceci</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>Nous avons trouvé qu’il y avait <span class="st">`</span><span class="at">r votre_code_ici</span><span class="st">`</span> cas dans la Catégorie B.</span></code></pre></div>
-<p>Une utilisation courante du code R en ligne est d’accéder à des
-éléments spécifiques d’un objet de données tel qu’une matrice ou un
-dataframe. Pour accéder à un élément spécifique, nous utilisons des
-crochets <code>[]</code> avec les indices de ligne et de colonne. Par
-exemple, si nous avons une matrice <code>m</code>, nous pouvons accéder
-à l’élément à la ligne 2, colonne 3 comme suit :
-<code>m[2, 3]</code>.</p>
-<p>Prenons un exemple avec un tableau Markdown. Supposons que nous ayons
-un tableau comme suit :</p>
-<table>
-<thead>
-<tr class="header">
-<th>Catégorie</th>
-<th>Compte</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>10</td>
-</tr>
-<tr class="even">
-<td>B</td>
-<td>20</td>
-</tr>
-<tr class="odd">
-<td>C</td>
-<td>30</td>
-</tr>
-</tbody>
-</table>
-<p>Si nous voulons afficher le compte pour la Catégorie B dans notre
-texte, nous pourrions écrire quelque chose comme ceci dans notre script
-Rmarkdown (pas dans un chunk de code) :</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>Nous avons trouvé qu’il y avait <span class="st">`</span><span class="at">r counts[2, 2]</span><span class="st">`</span> cas dans la Catégorie B.</span></code></pre></div>
-<p>Lorsque ce document R Markdown est tricoté, il s’affichera comme suit
-:</p>
-<p>“Nous avons trouvé qu’il y avait 20 cas dans la Catégorie B.”</p>
-</div>
+<div id="soumettre-lexercice-de-latelier-3" class="section level1">
+<h1>Soumettre l’exercice de l’Atelier 3</h1>
+<p>Pour soumettre votre travail, veuillez télécharger votre propre
+<strong>fichier Rmd</strong> et votre <strong>fichier HTML</strong> sur
+leurs pages de soumission respectives.</p>
+<p><em>Remarque : Avant de télécharger et de soumettre vos fichiers,
+assurez-vous que le Rmd se tricote avec succès et que vous obtenez la
+sortie HTML souhaitée.</em></p>
 </div>
     </section>
   </div>

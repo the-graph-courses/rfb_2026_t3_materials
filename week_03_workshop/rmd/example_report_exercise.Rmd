@@ -1,0 +1,49 @@
+---
+title: "Rapport Exemple : Accidents de moto en Colombie"
+output: prettydoc::html_pretty
+author: "Équipe GRAPH Courses"
+---
+
+Ce document est un exemple modèle de ce à quoi peut ressembler un rapport pour cet exercice. Vous pouvez utiliser ce document comme guide pour rédiger votre rapport.
+
+# Blessures routières des motocyclistes en Colombie
+
+```{r setup, echo = FALSE, message = FALSE}
+# Charger les packages
+if (!require(pacman)) install.packages("pacman")
+pacman::p_load(tidyverse, here, janitor, esquisse, flextable)
+```
+
+```{r import, echo = FALSE, message = FALSE}
+# Importer le CSV
+col_accidents <- read_csv(here("data/teachers_example_data_motorcycle_accidents_colombia.csv"))
+# Nettoyer les noms de variables
+col_accidents_clean <- clean_names(col_accidents)
+```
+
+L'ensemble de données analysé dans ce rapport fournit des informations sur `r nrow(col_accidents_clean)` décès causés par des accidents de moto à Medellín, une ville colombienne, de 2012 à 2015. Les données proviennent de certificats médicaux et policiers et sont accessibles [ici](https://zenodo.org/record/4836304).
+
+## Répartition par groupe d'âge
+
+J'ai choisi d'examiner la répartition par groupe d'âge des décès dus aux accidents de moto. Les victimes avaient de `r min(col_accidents_clean$age)` à `r max(col_accidents_clean$age)` ans.
+
+```{r age-plot, echo = FALSE}
+age_group_plot <-
+  col_accidents_clean %>%
+  ggplot() +
+  aes(x = age_group) +
+  geom_bar(fill = "#678BCB") +
+  labs(title = "Répartition par groupe d'âge des décès")
+age_group_plot
+```
+
+Le tableau ci-dessous résume les données :
+
+```{r age-table, echo = FALSE}
+freq_df <- tabyl(col_accidents_clean, age_group)
+flex <- flextable(freq_df)
+flex_with_caption <- set_caption(flex, caption = "Répartition par groupe d'âge des décès")
+flex_with_caption
+```
+
+Le groupe d'âge quinquennal comptant le plus de décès était celui des 20 à 24 ans.
