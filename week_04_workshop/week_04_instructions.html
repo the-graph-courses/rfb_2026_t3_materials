@@ -10,11 +10,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<meta name="author" content="GRAPH Courses team" />
+<meta name="author" content="VOTRE NOM ICI" />
 
-<meta name="date" content="2024-02-07" />
 
-<title>Atelier 4: Extraire and Exporter des sous-ensembles de données</title>
+<title>Atelier 4 : Extraire et exporter des sous-ensembles de données</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -33,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -140,10 +140,9 @@ pointer-events: auto;
 
 <header>
 <div class="inner">
-<h1 class="title toc-ignore">Atelier 4: Extraire and Exporter des
+<h1 class="title toc-ignore">Atelier 4 : Extraire et exporter des
 sous-ensembles de données</h1>
-<h3 class="author">GRAPH Courses team</h3>
-<h3 class="date">2024-02-07</h3>
+<h3 class="author">VOTRE NOM ICI</h3>
 </div>
 </header>
 
@@ -153,32 +152,31 @@ sous-ensembles de données</h1>
 <ul>
 <li><a href="#introduction" id="toc-introduction"><span class="toc-section-number">1</span> Introduction</a></li>
 <li><a href="#configuration" id="toc-configuration"><span class="toc-section-number">2</span> Configuration</a></li>
-<li><a href="#charger-et-nettoyer-les-données" id="toc-charger-et-nettoyer-les-données"><span class="toc-section-number">3</span> Charger et nettoyer les
+<li><a href="#charger-et-nettoyer-les-donn%C3%A9es" id="toc-charger-et-nettoyer-les-données"><span class="toc-section-number">3</span> Charger et nettoyer les
 données</a></li>
-<li><a href="#créer-et-exporter-des-sous-ensembles-de-données" id="toc-créer-et-exporter-des-sous-ensembles-de-données"><span class="toc-section-number">4</span> Créer et exporter des sous-ensembles
+<li><a href="#cr%C3%A9er-et-exporter-des-sous-ensembles-de-donn%C3%A9es" id="toc-créer-et-exporter-des-sous-ensembles-de-données"><span class="toc-section-number">4</span> Créer et exporter des sous-ensembles
 de données</a>
 <ul>
-<li><a href="#sous-ensemble-de-données-1-extraire-les-informations-démographiques-et-les-indicateurs-de-vaccination" id="toc-sous-ensemble-de-données-1-extraire-les-informations-démographiques-et-les-indicateurs-de-vaccination"><span class="toc-section-number">4.1</span> <strong>Sous-ensemble de données 1
+<li><a href="#sous-ensemble-de-donn%C3%A9es-1-extraire-les-informations-d%C3%A9mographiques-et-les-indicateurs-de-vaccination" id="toc-sous-ensemble-de-données-1-extraire-les-informations-démographiques-et-les-indicateurs-de-vaccination"><span class="toc-section-number">4.1</span> <strong>Sous-ensemble de données 1
 :</strong> Extraire les informations démographiques et les indicateurs
 de vaccination</a></li>
-<li><a href="#sous-ensemble-de-données-2-extraire-les-variables-des-questions-dévaluation-des-connaissances" id="toc-sous-ensemble-de-données-2-extraire-les-variables-des-questions-dévaluation-des-connaissances"><span class="toc-section-number">4.2</span> <strong>Sous-ensemble de données 2
+<li><a href="#sous-ensemble-de-donn%C3%A9es-2-extraire-les-variables-des-questions-d%C3%A9valuation-des-connaissances" id="toc-sous-ensemble-de-données-2-extraire-les-variables-des-questions-dévaluation-des-connaissances"><span class="toc-section-number">4.2</span> <strong>Sous-ensemble de données 2
 :</strong> Extraire les variables des questions d’évaluation des
 connaissances</a></li>
-<li><a href="#sous-ensemble-de-données-3-extraire-tous-les-adultes-masculins" id="toc-sous-ensemble-de-données-3-extraire-tous-les-adultes-masculins"><span class="toc-section-number">4.3</span> <strong>Sous-ensemble de données 3
-:</strong> Extraire tous les adultes masculins</a></li>
-<li><a href="#sous-ensemble-de-données-4-extraire-les-individus-à-risque" id="toc-sous-ensemble-de-données-4-extraire-les-individus-à-risque"><span class="toc-section-number">4.4</span> <strong>Sous-ensemble de données 4
+<li><a href="#sous-ensemble-de-donn%C3%A9es-3-extraire-tous-les-adultes-de-sexe-masculin" id="toc-sous-ensemble-de-données-3-extraire-tous-les-adultes-de-sexe-masculin"><span class="toc-section-number">4.3</span> <strong>Sous-ensemble de données 3
+:</strong> Extraire tous les adultes de sexe masculin</a></li>
+<li><a href="#sous-ensemble-de-donn%C3%A9es-4-extraire-les-individus-%C3%A0-risque" id="toc-sous-ensemble-de-données-4-extraire-les-individus-à-risque"><span class="toc-section-number">4.4</span> <strong>Sous-ensemble de données 4
 :</strong> Extraire les individus à risque</a></li>
-<li><a href="#sous-ensemble-de-données-5-extraire-les-répondants-ayant-des-connaissances-attitudes-et-pratiques-cap-idéales-envers-la-rage" id="toc-sous-ensemble-de-données-5-extraire-les-répondants-ayant-des-connaissances-attitudes-et-pratiques-cap-idéales-envers-la-rage"><span class="toc-section-number">4.5</span> <strong>Sous-ensemble de données 5
+<li><a href="#sous-ensemble-de-donn%C3%A9es-5-extraire-les-r%C3%A9pondants-ayant-des-connaissances-attitudes-et-pratiques-cap-id%C3%A9ales-envers-la-rage" id="toc-sous-ensemble-de-données-5-extraire-les-répondants-ayant-des-connaissances-attitudes-et-pratiques-cap-idéales-envers-la-rage"><span class="toc-section-number">4.5</span> <strong>Sous-ensemble de données 5
 :</strong> Extraire les répondants ayant des connaissances, attitudes et
 pratiques (CAP) “idéales” envers la rage</a></li>
 </ul></li>
-<li><a href="#soumission-téléchargez-votre-fichier-rmd-sur-le-portail-graph-courses" id="toc-soumission-téléchargez-votre-fichier-rmd-sur-le-portail-graph-courses"><span class="toc-section-number">5</span> Soumission : Téléchargez votre
-fichier Rmd sur le portail GRAPH Courses</a></li>
-<li><a href="#exercice-défi" id="toc-exercice-défi"><span class="toc-section-number">6</span> Exercice défi</a>
+<li><a href="#soumission-t%C3%A9l%C3%A9chargez-votre-fichier-rmd-sur-le-site-des-graph-courses" id="toc-soumission-téléchargez-votre-fichier-rmd-sur-le-site-des-graph-courses"><span class="toc-section-number">5</span> Soumission : téléchargez votre
+fichier Rmd sur le site des GRAPH Courses</a></li>
+<li><a href="#exercice-d%C3%A9fi" id="toc-exercice-défi"><span class="toc-section-number">6</span> Exercice défi</a>
 <ul>
-<li><a href="#fichiers-csv-vs-excel" id="toc-fichiers-csv-vs-excel"><span class="toc-section-number">6.1</span> Fichiers CSV vs Excel</a></li>
-<li><a href="#instructions-pour-le-défi" id="toc-instructions-pour-le-défi"><span class="toc-section-number">6.2</span> Instructions pour le défi</a></li>
-<li><a href="#exemple-de-défi" id="toc-exemple-de-défi"><span class="toc-section-number">6.3</span> Exemple de défi</a></li>
+<li><a href="#exemple-de-d%C3%A9fi" id="toc-exemple-de-défi"><span class="toc-section-number">6.1</span> Exemple de défi</a></li>
+<li><a href="#%C3%A0-votre-tour" id="toc-à-votre-tour"><span class="toc-section-number">6.2</span> À votre tour</a></li>
 </ul></li>
 </ul>
 </div>
@@ -192,66 +190,59 @@ fichier Rmd sur le portail GRAPH Courses</a></li>
 <p>Bienvenue !</p>
 <p>Pour l’exercice de cette semaine, vous effectuerez une nouvelle tâche
 en tant qu’analyste de données : préparer des sous-ensembles de données
-pour <strong>quelqu’un d’autre</strong>. Il s’agit d’une approche
-pratique de l’utilisation des verbes <code>select()</code> et
-<code>filter()</code>. Ceci s’appuiera sur les leçons suivantes de la
-préparation au travail :</p>
+destinés à être utilisés par <strong>quelqu’un d’autre</strong>. Il
+s’agit d’une approche pratique de l’utilisation des verbes
+<code>select()</code> et <code>filter()</code>. Cet exercice s’appuie
+sur les leçons suivantes de la préparation au travail (liens ci-dessous)
+:</p>
 <ul>
-<li><p><a href="https://the-graph-courses.github.io/data_untangled_wp/lessons/fr_ls01_select_rename.html">Sélectionner
-&amp; renommer</a></p></li>
-<li><p><a href="https://the-graph-courses.github.io/data_untangled_wp/lessons/fr_ls02_filter.html">Filtrer</a></p></li>
+<li><p><a href="https://the-graph-courses.github.io/data_untangled_wp/lessons/fr_ls01_select_rename.html"><strong>Sélectionner
+&amp; renommer</strong></a></p></li>
+<li><p><a href="https://the-graph-courses.github.io/data_untangled_wp/lessons/fr_ls02_filter.html"><strong>Filtrer</strong></a></p></li>
 </ul>
-<p>Les notes de cours (liens ci-dessus) peuvent être très utiles pour
-accomplir l’exercice ci-dessous, alors n’hésitez pas à les consulter
-pendant l’atelier !</p>
-<p>L’exercice doit être soumis individuellement, mais vous êtes encouragé à
-brainstormer avec vos partenaires.</p>
+<p>Les notes de cours peuvent être très utiles pour accomplir l’exercice
+ci-dessous, alors n’hésitez pas à les consulter pendant l’atelier !</p>
+<p>L’exercice doit être soumis individuellement, mais vous êtes
+encouragé à réfléchir avec vos partenaires.</p>
+<hr />
 </div>
 <div id="configuration" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Configuration</h1>
-<p>Pour commencer, vous devez télécharger, <strong>dézipper</strong> et
-parcourir le dossier de l’exercice.</p>
-<ol style="list-style-type: decimal">
-<li><p><strong>Ouvrez le projet</strong> <strong>RStudio</strong> en
-cliquant sur le fichier <em>.Rproj</em> pertinent dans le dossier
-dézippé de l’atelier. Assurez-vous d’avoir ouvert le projet
-<strong>week_04_workshop</strong> dans RStudio.</p></li>
-<li><p>Dans RStudio, accédez à l’onglet Fichiers et ouvrez le dossier
-“rmd”. Le fichier appelé <strong>week_04_exercise.Rmd</strong> contient
-à la fois les instructions et l’exercice de l’atelier dans un seul
-fichier (ce sont les mêmes instructions que vous voyez ici).</p></li>
-<li><p>Dans le dossier “data”, ouvrez le fichier de métadonnées
-(dictionnaire de données), “<strong>metadonnees_rage.pdf</strong>”. Ce
-dictionnaire de données a été fourni pour définir les variables dans
-“<strong>rage_sous_ensemble.csv</strong>”. Il est nécessaire car les
-données d’aujourd’hui sont codées numériquement ; c’est-à-dire que
-toutes les variables sont stockées sous forme de nombres qui
-correspondent à des catégories. Sans le dictionnaire de variables, vous
-ne sauriez pas à quoi correspondent les codes numériques !</p></li>
-</ol>
+<p>Après avoir ouvert votre projet RStudio et le fichier de l’exercice,
+allez dans l’onglet “Files” et ouvrez le dossier “data”. Vous y
+trouverez le jeu de données que vous utiliserez aujourd’hui :
+<strong>“donnees_rage.csv”</strong>.</p>
+<p>Vous y trouverez également le fichier de métadonnées (dictionnaire de
+données), “<strong>metadonnees_rage.pdf</strong>”. Ce dictionnaire de
+données a été fourni pour définir les variables de
+<strong>“donnees_rage.csv”</strong>. Il est nécessaire car les données
+d’aujourd’hui sont codées numériquement ; c’est-à-dire que toutes les
+variables sont stockées sous forme de nombres qui correspondent à des
+catégories. Sans le dictionnaire de variables, vous ne sauriez pas à
+quoi correspondent les codes numériques !</p>
+<hr />
 </div>
 <div id="charger-et-nettoyer-les-données" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Charger et nettoyer les
 données</h1>
-<p>Maintenant que vous comprenez la structure du dépôt, vous pouvez
+<p>Maintenant que vous comprenez la structure du dossier, vous pouvez
 charger et nettoyer votre jeu de données.</p>
 <p>Dans la section de code ci-dessous, <strong>chargez les packages
 nécessaires</strong> (conseil : chargez {tidyverse} et {here}).</p>
-<p><em>Conseil professionnel : Utilisez <code>p_load()</code> pour
-charger vos packages, car il charge à la fois et installe les packages
-si nécessaire.</em></p>
+<p><em>Conseil : utilisez <code>p_load()</code> pour charger vos
+packages, car cette fonction les charge et les installe si
+nécessaire.</em></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># Charger les packages</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
-<p>Maintenant, <strong>lisez le jeu de données dans R</strong>. Le data
-frame que vous importez doit avoir 1466 lignes et 23 colonnes.</p>
-<p><em>Conseil professionnel : N’oubliez pas d’utiliser la fonction
-<code>here()</code> pour permettre à votre Rmd d’utiliser des chemins
-relatifs au projet.</em></p>
-<p><em>Rappel : Utiliser le fonction {dplyr} pour importez votre CSV,
-pas la fonction de base R</em></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Importer les données</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>rage_brut <span class="ot">&lt;-</span> <span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span></code></pre></div>
+<pre><code>## Loading required package: pacman</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
+<pre><code>## [1] &quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</code></pre>
+<p>Maintenant, <strong>importez le jeu de données dans R</strong>. Le
+data frame que vous importez doit avoir 1466 lignes et 23 colonnes.
+N’oubliez pas d’utiliser la fonction <code>here()</code> pour que votre
+Rmd utilise des chemins relatifs au projet.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># Importer les données</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>rage_brut <span class="ot">&lt;-</span> <span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
 <p>Ce jeu de données provient d’une étude visant à évaluer le niveau de
 connaissance et de compréhension de la maladie de la rage dans les
 communautés rurales et urbaines du Pakistan.</p>
@@ -262,21 +253,22 @@ communautés rurales et urbaines du Pakistan.</p>
 de données importé, puis stockez le jeu de données nettoyé dans un
 nouvel objet.</p>
 <ul>
-<li><p><strong>Placer l’ID du répondant en tête</strong>. L’ID du
+<li><p><strong>Placez l’ID du répondant en tête.</strong> L’ID du
 répondant est la 23e colonne de votre jeu de données. Il devrait être
-plus visible pour que quelqu’un qui ouvre le CSV sache immédiatement que
-chaque ligne correspond à un répondant. Déplacez-le en première position
-dans le data frame. (<em>Conseil : n’oubliez pas la fonction
+plus visible, pour que quelqu’un qui ouvre le CSV sache immédiatement
+que chaque ligne correspond à un répondant. Déplacez-le en première
+position dans le data frame. (<em>Conseil : n’oubliez pas la fonction
 <code>everything()</code> que nous vous avons enseignée. Vous pouvez
-également utiliser <code>relocate()</code></em>)</p></li>
-<li><p><strong>Supprimer la variable <code>Education</code>, qui n’a pas
+également utiliser <code>relocate()</code>.</em>)</p></li>
+<li><p><strong>Supprimez la variable <code>Education</code>, qui n’a pas
 été correctement encodée.</strong> (Si vous souhaitez voir les problèmes
 d’encodage, vous pouvez consulter à la fois le data frame et le fichier
-de métadonnées). Nous considérons cette variable inutilisable pour le
+de métadonnées.) Nous considérons cette variable inutilisable pour le
 moment et nous la supprimons donc.</p></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># Nettoyer les données</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>rage <span class="ot">&lt;-</span> <span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># Nettoyer les données</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>rage <span class="ot">&lt;-</span> <span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
+<hr />
 </div>
 <div id="créer-et-exporter-des-sous-ensembles-de-données" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Créer et exporter des
@@ -284,12 +276,14 @@ sous-ensembles de données</h1>
 <p>Dans chaque section “Sous-ensemble de données” ci-dessous, vous
 devrez :</p>
 <ol style="list-style-type: decimal">
-<li><p>Déterminer si vous devez utiliser la fonction
-<code>filter()</code> ou <code>select()</code>, puis appliquer cette
-fonction pour créer l’extrait requis du jeu de données.</p></li>
+<li><p>Déterminer s’il faut utiliser la fonction <code>filter()</code>
+ou <code>select()</code>, puis appliquer cette fonction pour créer
+l’extrait requis du jeu de données.</p></li>
 <li><p>Exporter chaque sous-ensemble de données dans un fichier CSV
-portant un nom approprié dans le dossier de sortie.</p></li>
+portant un nom approprié, dans le dossier “outputs”.</p></li>
 </ol>
+<p><em>Dans tous les cas, partez du jeu de données nettoyé,
+<code>rage</code>, et non de <code>rage_brut</code>.</em></p>
 <div id="sous-ensemble-de-données-1-extraire-les-informations-démographiques-et-les-indicateurs-de-vaccination" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> <strong>Sous-ensemble
 de données 1 :</strong> Extraire les informations démographiques et les
@@ -297,21 +291,20 @@ indicateurs de vaccination</h2>
 <p>Créez et exportez un sous-ensemble de données contenant les variables
 liées aux sujets suivants :</p>
 <ol style="list-style-type: decimal">
-<li><p>Informations démographiques des répondants — leur âge, leur sexe
+<li><p>Informations démographiques des répondants : leur âge, leur sexe
 et leur origine géographique.</p></li>
-<li><p>Variables liées à la vaccination (<em>Conseil : utilisez
-<code>contains()</code> ou <code>ends_with()</code> pour sélectionner
-les 7 variables liées à la vaccination</em>).</p></li>
+<li><p>Variables liées à la vaccination (<em>conseil : utilisez
+<code>contains()</code> pour sélectionner les 7 variables liées à la
+vaccination</em>).</p></li>
 </ol>
-<p><em>N’oubliez pas d’utiliser le sous-ensemble <code>rage</code></em>
-<em>!</em></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># Sous-ensemble de données</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>demog <span class="ot">&lt;-</span> <span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co"># Exportez les données</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
-<p>N’oubliez pas d’utiliser la fonction <code>here()</code> pour
-permettre à votre Rmd d’utiliser des chemins relatifs au projet.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># Sous-ensemble de données</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>demog <span class="ot">&lt;-</span> <span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co"># Exporter les données</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
+<pre><code>## [1] &quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</code></pre>
+<p>N’oubliez pas d’utiliser la fonction <code>here()</code> pour que
+votre Rmd utilise des chemins relatifs au projet.</p>
 </div>
 <div id="sous-ensemble-de-données-2-extraire-les-variables-des-questions-dévaluation-des-connaissances" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> <strong>Sous-ensemble
@@ -321,29 +314,27 @@ d’évaluation des connaissances</h2>
 variables correspondent à des questions d’évaluation des connaissances
 sur la rage. Créez et exportez un sous-ensemble qui ne comprend que ces
 variables.</p>
-<p><em>N’oubliez pas d’utiliser le sous-ensemble <code>rage</code></em>
-<em>!</em></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># Sous-ensemble de données</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co"># Exportez les données</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># Sous-ensemble de données</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
+<pre><code>## [1] &quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co"># Exporter les données</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
+<pre><code>## [1] &quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</code></pre>
 </div>
-<div id="sous-ensemble-de-données-3-extraire-tous-les-adultes-masculins" class="section level2" number="4.3">
+<div id="sous-ensemble-de-données-3-extraire-tous-les-adultes-de-sexe-masculin" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> <strong>Sous-ensemble
-de données 3 :</strong> Extraire tous les adultes masculins</h2>
+de données 3 :</strong> Extraire tous les adultes de sexe masculin</h2>
 <p>Créez et exportez un sous-ensemble de données contenant uniquement
 les enregistrements des hommes de plus de 18 ans.</p>
-<p><em>N’oubliez pas d’utiliser le sous-ensemble <code>rage</code></em>
-<em>!</em></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># Sous-ensemble de données</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co"># Exportez les données</span></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
-<p><em>Conseil : il s’agit d’une question de filtrage des lignes, donc
-il n’est pas nécessaire de sélectionner ou de supprimer des
+<p><em>Conseil : il s’agit d’une question de filtrage des lignes, il
+n’est donc pas nécessaire de sélectionner ou de supprimer des
 colonnes.</em></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co"># Sous-ensemble de données</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
+<pre><code>## [1] &quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co"># Exporter les données</span></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
+<pre><code>## [1] &quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</code></pre>
 </div>
 <div id="sous-ensemble-de-données-4-extraire-les-individus-à-risque" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> <strong>Sous-ensemble
@@ -352,198 +343,158 @@ de données 4 :</strong> Extraire les individus à risque</h2>
 Nous définissons les personnes “à risque” comme celles qui répondent à
 l’un des critères suivants :</p>
 <ol style="list-style-type: decimal">
-<li><p>Avoir un animal domestique à la maison,</p></li>
-<li><p>Ne pas avoir de structure de santé dans leur région, OU</p></li>
-<li><p>Considérer que le vaccin antirabique n’est pas abordable pour
-eux.</p></li>
+<li><p>avoir un animal domestique à la maison,</p></li>
+<li><p>ne pas avoir de structure de santé dans leur région, OU</p></li>
+<li><p>considérer que le vaccin antirabique n’est pas abordable pour
+elles.</p></li>
 </ol>
-<p><em>N’oubliez pas d’utiliser le sous-ensemble <code>rage</code></em>
-<em>!</em></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># Sous-ensemble de données</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co"># Exportez les données</span></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="co"># Sous-ensemble de données</span></span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
+<pre><code>## [1] &quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="co"># Exporter les données</span></span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
+<pre><code>## [1] &quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</code></pre>
 </div>
 <div id="sous-ensemble-de-données-5-extraire-les-répondants-ayant-des-connaissances-attitudes-et-pratiques-cap-idéales-envers-la-rage" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> <strong>Sous-ensemble
 de données 5 :</strong> Extraire les répondants ayant des connaissances,
 attitudes et pratiques (CAP) “idéales” envers la rage</h2>
-<p>Nous définirons les personnes ayant des CAP “idéales” comme celles
-qui ont répondu qu’elles satisfont à tous les critères suivants :</p>
-<ol style="list-style-type: decimal">
-<li><p>Savent que les morsures de chien transmettent la rage ;</p></li>
-<li><p>Connaissent les signes cliniques de la rage et ;</p></li>
-<li><p>Consulteraient un médecin après avoir été mordues par un
+<p>Nous définirons les personnes ayant des CAP <em>idéales</em> comme
+celles qui ont répondu qu’elles satisfont à tous les critères suivants
+:</p>
+<ul>
+<li><p>savent que les morsures de chien transmettent la rage ;</p></li>
+<li><p>connaissent les signes cliniques de la rage ; et</p></li>
+<li><p>consulteraient un médecin après avoir été mordues par un
 animal.</p></li>
-</ol>
+</ul>
 <p>Créez et exportez un sous-ensemble de données qui ne comprend que ces
 individus.</p>
-<p><em>N’oubliez pas d’utiliser le sous-ensemble <code>rage</code></em>
-<em>!</em></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># Sous-ensemble de données</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="co"># Exportez les données</span></span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="co"># Sous-ensemble de données</span></span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
+<pre><code>## [1] &quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="co"># Exporter les données</span></span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="st">&quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</span></span></code></pre></div>
+<pre><code>## [1] &quot;ÉCRIVEZ_VOTRE_CODE_ICI&quot;</code></pre>
+<hr />
 </div>
 </div>
-<div id="soumission-téléchargez-votre-fichier-rmd-sur-le-portail-graph-courses" class="section level1" number="5">
+<div id="soumission-téléchargez-votre-fichier-rmd-sur-le-site-des-graph-courses" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Soumission :
-Téléchargez votre fichier Rmd sur le portail GRAPH Courses</h1>
+téléchargez votre fichier Rmd sur le site des GRAPH Courses</h1>
 <p>Une fois que vous avez terminé les tâches ci-dessus, vous devez
-télécharger <strong>uniquement</strong> le fichier <em>Rmd</em> sur la
-page de l’exercice dans le portail GRAPH Courses. Vous n’avez pas besoin
-de télécharger les exports de données ; le fichier Rmd suffit. Nous
-pourrons vérifier si vos exports étaient corrects en regardant
-uniquement votre fichier Rmd.</p>
-<p>Il est recommandé de supprimer le code et le texte qui ne sont pas
-pertinents pour votre exercice du fichier Rmd avant de le soumettre. Par
-exemple, si vous n’avez pas terminé la tâche optionnelle de l’exercice
-de défi décrite ci-dessous, vous pouvez la supprimer.</p>
+téléverser <strong>uniquement</strong> le fichier <em>Rmd</em> sur la
+page de l’exercice du site des GRAPH Courses. Vous n’avez pas besoin de
+téléverser les exports de données ; <strong>le fichier Rmd
+suffit</strong>. Nous pourrons vérifier si vos exports étaient corrects
+en regardant uniquement votre fichier Rmd.</p>
+<p><strong>*REMARQUE :</strong> il est recommandé de supprimer du Rmd le
+code et le texte qui ne sont pas pertinents pour votre exercice avant de
+le soumettre. Par exemple, si vous n’avez pas terminé l’exercice défi
+décrit ci-dessous, vous pouvez le supprimer.</p>
+<hr />
 </div>
 <div id="exercice-défi" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Exercice défi</h1>
 <p>Si vous terminez votre tâche principale à temps, vous pouvez attaquer
-cette section de défi optionnelle.</p>
+cette section défi optionnelle.</p>
 <p>Votre tâche pour ce défi consiste à exporter les mêmes sous-ensembles
 de données créés ci-dessus dans un <strong>classeur Excel</strong>, avec
-chaque sous-ensemble dans une feuille de travail séparée.</p>
+chaque sous-ensemble dans une feuille de calcul séparée.</p>
 <p>Pourquoi est-ce utile ? Excel est un outil largement utilisé et
 familier pour de nombreux professionnels, y compris les responsables de
-la santé publique. En tant qu’analyste de données, vous devez souvent
-présenter vos résultats sous une forme accessible et compréhensible pour
-ces personnes. Excel est un tel outil.</p>
+la santé publique.</p>
 <p>De plus, les classeurs Excel vous permettent d’organiser plusieurs
 tables liées dans des feuilles séparées au sein d’un seul fichier, ce
 qui améliore la clarté et la navigabilité de votre sortie.</p>
-<p>Nous ne vous avons pas encore enseigné formellement comment exporter
-vers des fichiers Excel, nous avons donc fourni un tutoriel en bas de ce
-document, ainsi qu’un lien vers la documentation du package que vous
-utiliserez.</p>
-<div id="fichiers-csv-vs-excel" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Fichiers CSV vs
-Excel</h2>
-<p>Vous n’êtes pas sûr de la différence entre un fichier CSV (.csv) et
-un fichier Excel (.xls ou .xlsx) ? Voici un bref résumé :</p>
-<p><strong>Fichiers CSV</strong> (.csv) :</p>
-<ul>
-<li>CSV signifie “Comma-Separated Values” (valeurs séparées par des
-virgules). Ce sont des fichiers texte simples où chaque donnée est
-séparée par une virgule.</li>
-<li>Voici certaines de leurs principales caractéristiques :
-<ul>
-<li><strong>Simplicité</strong> : les fichiers CSV peuvent être ouverts
-avec n’importe quel éditeur de texte, ce qui les rend faciles à
-visualiser et à manipuler.</li>
-<li><strong>Compatibilité</strong> : ils sont largement pris en charge
-sur différentes plates-formes et langages de programmation. Vous pouvez
-importer et exporter des fichiers CSV dans la plupart des logiciels de
-traitement de données, y compris Microsoft Excel, Google Sheets et tout
-système de gestion de base de données.</li>
-<li><strong>Pas de mise en forme</strong> : les fichiers CSV ne prennent
-pas en charge la mise en forme ou les styles de texte. Cela signifie
-qu’ils ne peuvent pas stocker d’informations telles que les styles de
-police, les couleurs ou les tailles.</li>
-<li><strong>Pas de feuilles multiples</strong> : contrairement aux
-fichiers Excel, les fichiers CSV ne peuvent pas contenir plusieurs
-feuilles. Chaque fichier CSV contient une seule table de données.</li>
-</ul></li>
-</ul>
-<p><strong>Fichiers Excel</strong> (.xls ou .xlsx) :</p>
-<ul>
-<li>Les fichiers Excel sont le format binaire propriétaire de Microsoft
-pour stocker des données dans des classeurs, qui peuvent contenir une ou
-plusieurs feuilles de calcul.</li>
-<li>Certaines caractéristiques clés des fichiers Excel incluent :
-<ul>
-<li><strong>Feuilles multiples</strong> : les classeurs Excel peuvent
-contenir plusieurs feuilles, vous permettant d’organiser des ensembles
-de données liés dans un seul fichier.</li>
-<li><strong>Mise en forme riche</strong> : vous pouvez formater le texte
-dans Excel de différentes manières, en modifiant la police, la couleur
-et la taille, ainsi qu’en utilisant des options de mise en forme
-avancées telles que la mise en forme conditionnelle. Ces formats peuvent
-être définis depuis R lui-même, comme vous le verrez ci-dessous.</li>
-</ul></li>
-</ul>
-<p>Voici une courte vidéo qui explique certaines de ces notions
-<em>(vidéo en anglais)</em> : <a href="https://youtu.be/hlbRgI45_90" class="uri">https://youtu.be/hlbRgI45_90</a></p>
-</div>
-<div id="instructions-pour-le-défi" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Instructions pour le
-défi</h2>
-<p>Maintenant, voici les instructions étape par étape pour l’exercice de
+<p>Voici maintenant les instructions étape par étape pour l’exercice
 défi :</p>
 <ol style="list-style-type: decimal">
 <li><p>Vous commencerez par créer un data frame personnalisé qui décrira
-le contenu de chaque feuille du classeur Excel. Vous pouvez le faire en
+le contenu de chaque feuille du classeur. Vous pouvez le faire en
 utilisant la fonction <code>data.frame()</code>. Ceci servira de table
 des matières pour votre fichier Excel et sera placé dans la première
 feuille.</p></li>
-<li><p>À l’aide du package <code>openxlsx</code>, exportez ensuite
-chaque sous-ensemble de données dans sa propre feuille d’un classeur
-Excel unique. Assurez-vous que la première feuille du classeur contient
-la table descriptive que vous avez créée à l’étape précédente.</p></li>
+<li><p>À l’aide du package <code>openxlsx</code>, vous exporterez
+ensuite chaque sous-ensemble de données dans sa propre feuille d’un
+classeur Excel unique. Assurez-vous que la première feuille du classeur
+contient la table descriptive que vous avez créée à l’étape
+précédente.</p></li>
 <li><p>Chaque en-tête de colonne doit être en gras. Cela peut être
 réalisé en définissant un style personnalisé à l’aide de la fonction
 <code>createStyle()</code> et en l’appliquant lors de
 l’exportation.</p></li>
 </ol>
-<p>Pour un tutoriel détaillé sur la façon d’écrire dans Excel en
-utilisant le package <code>openxlsx</code>, consultez la documentation
-officielle du package <code>openxlsx</code> <a href="https://ycphs.github.io/openxlsx/index.html">ici</a>.</p>
+<p>Pour un tutoriel détaillé sur la façon d’écrire dans Excel avec le
+package <code>openxlsx</code>, consultez la documentation officielle du
+package <code>openxlsx</code> <a href="https://ycphs.github.io/openxlsx/index.html">ici</a>.</p>
+<div id="exemple-de-défi" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Exemple de défi</h2>
+<p>Pour vous guider, voici un exemple reproductible utilisant le jeu de
+données intégré <code>iris</code>. L’exemple crée des sous-ensembles de
+données pour chaque espèce d’iris et les exporte dans des feuilles de
+calcul distinctes d’un classeur Excel. Il crée également une table
+décrivant chaque sous-ensemble :</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="co"># Charger les packages nécessaires</span></span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, here, openxlsx)</span>
+<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" tabindex="-1"></a><span class="co"># Créer des sous-ensembles du jeu de données iris pour chaque espèce</span></span>
+<span id="cb25-6"><a href="#cb25-6" tabindex="-1"></a>iris_setosa <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" tabindex="-1"></a>iris_virginica <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span>)</span>
+<span id="cb25-8"><a href="#cb25-8" tabindex="-1"></a>iris_versicolor <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">&quot;versicolor&quot;</span>)</span>
+<span id="cb25-9"><a href="#cb25-9" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" tabindex="-1"></a><span class="co"># Créer un data frame qui décrit ce que chaque feuille Excel contiendra</span></span>
+<span id="cb25-11"><a href="#cb25-11" tabindex="-1"></a><span class="co"># Ce data frame de description sera stocké dans la première feuille du fichier Excel</span></span>
+<span id="cb25-12"><a href="#cb25-12" tabindex="-1"></a>description_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb25-13"><a href="#cb25-13" tabindex="-1"></a>  <span class="at">Nom_de_la_Feuille =</span> <span class="fu">c</span>(<span class="st">&quot;Iris Setosa&quot;</span>, <span class="st">&quot;Iris Virginica&quot;</span>, <span class="st">&quot;Iris Versicolor&quot;</span>),</span>
+<span id="cb25-14"><a href="#cb25-14" tabindex="-1"></a>  <span class="at">Description =</span> <span class="fu">c</span>(<span class="st">&quot;Cette feuille contient un sous-ensemble de données pour Iris Setosa&quot;</span>,</span>
+<span id="cb25-15"><a href="#cb25-15" tabindex="-1"></a>                  <span class="st">&quot;Cette feuille contient un sous-ensemble de données pour Iris Virginica&quot;</span>,</span>
+<span id="cb25-16"><a href="#cb25-16" tabindex="-1"></a>                  <span class="st">&quot;Cette feuille contient un sous-ensemble de données pour Iris Versicolor&quot;</span>)</span>
+<span id="cb25-17"><a href="#cb25-17" tabindex="-1"></a>)</span>
+<span id="cb25-18"><a href="#cb25-18" tabindex="-1"></a></span>
+<span id="cb25-19"><a href="#cb25-19" tabindex="-1"></a><span class="co"># Afficher description_df dans la console pour vérification</span></span>
+<span id="cb25-20"><a href="#cb25-20" tabindex="-1"></a>description_df</span></code></pre></div>
+<pre><code>##   Nom_de_la_Feuille
+## 1       Iris Setosa
+## 2    Iris Virginica
+## 3   Iris Versicolor
+##                                                               Description
+## 1     Cette feuille contient un sous-ensemble de données pour Iris Setosa
+## 2  Cette feuille contient un sous-ensemble de données pour Iris Virginica
+## 3 Cette feuille contient un sous-ensemble de données pour Iris Versicolor</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="co"># Créer un style personnalisé pour les en-têtes de colonnes avec &#39;createStyle()&#39; du package &#39;openxlsx&#39;</span></span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a><span class="co"># Le style est : texte en gras, couleur de police blanche et remplissage bleu</span></span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a>mon_style_en_tete <span class="ot">&lt;-</span> <span class="fu">createStyle</span>(</span>
+<span id="cb27-4"><a href="#cb27-4" tabindex="-1"></a>  <span class="at">textDecoration =</span> <span class="st">&quot;BOLD&quot;</span>, <span class="at">fontColour =</span> <span class="st">&quot;#FFFFFF&quot;</span>, <span class="at">fgFill =</span> <span class="st">&quot;#4F80BD&quot;</span></span>
+<span id="cb27-5"><a href="#cb27-5" tabindex="-1"></a>)</span>
+<span id="cb27-6"><a href="#cb27-6" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" tabindex="-1"></a><span class="co"># Créer une liste &#39;iris_subsets&#39; contenant les tables que nous stockerons dans Excel</span></span>
+<span id="cb27-8"><a href="#cb27-8" tabindex="-1"></a><span class="co"># Ce sont le data frame de description et les trois sous-ensembles de données iris</span></span>
+<span id="cb27-9"><a href="#cb27-9" tabindex="-1"></a><span class="co"># Chaque élément de la liste reçoit un nom : &quot;Description&quot;, &quot;Iris Setosa&quot;, &quot;Iris Virginica&quot; et &quot;Iris Versicolor&quot;</span></span>
+<span id="cb27-10"><a href="#cb27-10" tabindex="-1"></a>iris_subsets <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;Description&quot;</span> <span class="ot">=</span> description_df,</span>
+<span id="cb27-11"><a href="#cb27-11" tabindex="-1"></a>                     <span class="st">&quot;Iris Setosa&quot;</span> <span class="ot">=</span> iris_setosa,</span>
+<span id="cb27-12"><a href="#cb27-12" tabindex="-1"></a>                     <span class="st">&quot;Iris Virginica&quot;</span> <span class="ot">=</span> iris_virginica,</span>
+<span id="cb27-13"><a href="#cb27-13" tabindex="-1"></a>                     <span class="st">&quot;Iris Versicolor&quot;</span> <span class="ot">=</span> iris_versicolor)</span>
+<span id="cb27-14"><a href="#cb27-14" tabindex="-1"></a></span>
+<span id="cb27-15"><a href="#cb27-15" tabindex="-1"></a><span class="co"># Écrire la liste &#39;iris_subsets&#39; dans un classeur Excel avec la fonction &#39;write.xlsx&#39; du package &#39;openxlsx&#39;</span></span>
+<span id="cb27-16"><a href="#cb27-16" tabindex="-1"></a><span class="co"># Spécifier le chemin du fichier avec la fonction &#39;here&#39; pour la portabilité</span></span>
+<span id="cb27-17"><a href="#cb27-17" tabindex="-1"></a><span class="co"># &#39;headerStyle = mon_style_en_tete&#39; applique aux en-têtes le style personnalisé défini plus haut</span></span>
+<span id="cb27-18"><a href="#cb27-18" tabindex="-1"></a><span class="fu">write.xlsx</span>(</span>
+<span id="cb27-19"><a href="#cb27-19" tabindex="-1"></a>  <span class="at">x =</span> iris_subsets,</span>
+<span id="cb27-20"><a href="#cb27-20" tabindex="-1"></a>  <span class="at">file =</span> <span class="fu">here</span>(<span class="st">&quot;outputs/exemple_defi_sous_ensembles_iris.xlsx&quot;</span>),</span>
+<span id="cb27-21"><a href="#cb27-21" tabindex="-1"></a>  <span class="at">headerStyle =</span> mon_style_en_tete</span>
+<span id="cb27-22"><a href="#cb27-22" tabindex="-1"></a>)</span></code></pre></div>
 </div>
-<div id="exemple-de-défi" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Exemple de défi</h2>
-<p>Pour vous guider, voici un exemple reproductible en utilisant
-l’ensemble de données intégré <code>iris</code>. L’exemple crée des
-sous-ensembles de données pour chaque espèce d’iris et les exporte dans
-des feuilles de calcul distinctes d’un classeur Excel. Il crée également
-une table décrivant chaque sous-ensemble :</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># Charger les packages nécessaires</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, here, openxlsx)</span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="co"># Créer des sous-ensembles de données de l&#39;ensemble de données iris pour chaque espèce</span></span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>iris_setosa <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span>)</span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>iris_virginica <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">&quot;virginica&quot;</span>)</span>
-<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>iris_versicolor <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">&quot;versicolor&quot;</span>)</span>
-<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="co"># Créer un data frame qui décrit ce que chaque feuille Excel contiendra</span></span>
-<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a><span class="co"># Ce data frame de description sera stocké dans la première feuille du fichier Excel</span></span>
-<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a>description_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>  <span class="at">Nom_de_la_Feuille =</span> <span class="fu">c</span>(<span class="st">&quot;Iris Setosa&quot;</span>, <span class="st">&quot;Iris Virginica&quot;</span>, <span class="st">&quot;Iris Versicolor&quot;</span>),</span>
-<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a>  <span class="at">Description =</span> <span class="fu">c</span>(<span class="st">&quot;Cette feuille contient un sous-ensemble de données pour Iris Setosa&quot;</span>, </span>
-<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a>                  <span class="st">&quot;Cette feuille contient un sous-ensemble de données pour Iris Virginica&quot;</span>, </span>
-<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a>                  <span class="st">&quot;Cette feuille contient un sous-ensemble de données pour Iris Versicolor&quot;</span>)</span>
-<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a>)</span>
-<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a></span>
-<span id="cb9-19"><a href="#cb9-19" tabindex="-1"></a><span class="co"># Afficher description_df dans la console pour vérification</span></span>
-<span id="cb9-20"><a href="#cb9-20" tabindex="-1"></a>description_df</span>
-<span id="cb9-21"><a href="#cb9-21" tabindex="-1"></a></span>
-<span id="cb9-22"><a href="#cb9-22" tabindex="-1"></a><span class="co"># Créer un style personnalisé pour les en-têtes de colonnes en utilisant &#39;createStyle()&#39; du package &#39;openxlsx&#39;</span></span>
-<span id="cb9-23"><a href="#cb9-23" tabindex="-1"></a><span class="co"># Le style est : texte en gras, couleur de police blanche et remplissage bleu</span></span>
-<span id="cb9-24"><a href="#cb9-24" tabindex="-1"></a>mon_style_en_tête <span class="ot">&lt;-</span> <span class="fu">createStyle</span>(</span>
-<span id="cb9-25"><a href="#cb9-25" tabindex="-1"></a>  <span class="at">textDecoration =</span> <span class="st">&quot;BOLD&quot;</span>, <span class="at">fontColour =</span> <span class="st">&quot;#FFFFFF&quot;</span>, <span class="at">fgFill =</span> <span class="st">&quot;#4F80BD&quot;</span></span>
-<span id="cb9-26"><a href="#cb9-26" tabindex="-1"></a>)</span>
-<span id="cb9-27"><a href="#cb9-27" tabindex="-1"></a></span>
-<span id="cb9-28"><a href="#cb9-28" tabindex="-1"></a><span class="co"># Créer une liste &#39;iris_subsets&#39; contenant la table que nous stockerons dans Excel</span></span>
-<span id="cb9-29"><a href="#cb9-29" tabindex="-1"></a><span class="co"># Ce sont le data frame de description et les trois sous-ensembles de données iris</span></span>
-<span id="cb9-30"><a href="#cb9-30" tabindex="-1"></a><span class="co"># Chaque élément de la liste reçoit un nom : &quot;Description&quot;, &quot;Iris Setosa&quot;, &quot;Iris Virginica&quot; et &quot;Iris Versicolor&quot;</span></span>
-<span id="cb9-31"><a href="#cb9-31" tabindex="-1"></a>iris_subsets <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&quot;Description&quot;</span> <span class="ot">=</span> description_df, </span>
-<span id="cb9-32"><a href="#cb9-32" tabindex="-1"></a>                     <span class="st">&quot;Iris Setosa&quot;</span> <span class="ot">=</span> iris_setosa, </span>
-<span id="cb9-33"><a href="#cb9-33" tabindex="-1"></a>                     <span class="st">&quot;Iris Virginica&quot;</span> <span class="ot">=</span> iris_virginica, </span>
-<span id="cb9-34"><a href="#cb9-34" tabindex="-1"></a>                     <span class="st">&quot;Iris Versicolor&quot;</span> <span class="ot">=</span> iris_versicolor)</span>
-<span id="cb9-35"><a href="#cb9-35" tabindex="-1"></a></span>
-<span id="cb9-36"><a href="#cb9-36" tabindex="-1"></a><span class="co"># Écrire la liste &#39;iris_subsets&#39; dans un classeur Excel en utilisant la fonction &#39;write.xlsx&#39; du package &#39;openxlsx&#39;</span></span>
-<span id="cb9-37"><a href="#cb9-37" tabindex="-1"></a><span class="co"># Spécifiez le chemin du fichier en utilisant la fonction &#39;here&#39; pour la portabilité</span></span>
-<span id="cb9-38"><a href="#cb9-38" tabindex="-1"></a><span class="co"># &#39;headerStyle = mon_style_en_tête&#39; applique le style personnalisé précédemment défini aux en-têtes</span></span>
-<span id="cb9-39"><a href="#cb9-39" tabindex="-1"></a><span class="fu">write.xlsx</span>(</span>
-<span id="cb9-40"><a href="#cb9-40" tabindex="-1"></a>  <span class="at">x =</span> iris_subsets,</span>
-<span id="cb9-41"><a href="#cb9-41" tabindex="-1"></a>  <span class="at">file =</span> <span class="fu">here</span>(<span class="st">&quot;outputs/iris_subsets_challenge_assignment_example.xlsx&quot;</span>),</span>
-<span id="cb9-42"><a href="#cb9-42" tabindex="-1"></a>  <span class="at">headerStyle =</span> mon_style_en_tête</span>
-<span id="cb9-43"><a href="#cb9-43" tabindex="-1"></a>)</span></code></pre></div>
+<div id="à-votre-tour" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> À votre tour</h2>
+<p>Essayez maintenant d’exporter dans un classeur Excel les
+sous-ensembles de données sur la rage que vous avez créés dans
+l’exercice. Veillez à rédiger une courte description de chaque
+sous-ensemble dans la première feuille du classeur. À la fin, votre
+classeur devrait compter 6 feuilles. Bonne chance !</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="st">&quot;VOTRE CODE POUR LA QUESTION DÉFI ICI&quot;</span></span></code></pre></div>
+<pre><code>## [1] &quot;VOTRE CODE POUR LA QUESTION DÉFI ICI&quot;</code></pre>
 </div>
 </div>
     </section>
