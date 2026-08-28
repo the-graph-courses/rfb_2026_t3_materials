@@ -1,0 +1,176 @@
+---
+title: "Projet final RFB"
+author: "GRAPH Courses Team"
+lang: fr
+format:
+    html:
+        toc: true
+        embed-resources: true
+---
+
+# **Résumé**
+
+Pour votre projet final, vous utiliserez les données de l'Enquête démographique et de santé (EDS/DHS) pour créer un rapport Rmarkdown sur un pays et un sujet de votre choix.
+
+Le rapport doit :
+
+- Analyser les données de l'un des jeux de données DHS de recodage individuel des femmes (IR) fournis. (D'autres jeux de données sont aussi autorisés ; voir l'annexe.)
+
+- Contenir au moins 400 mots de texte descriptif. (Les légendes des figures et des tableaux comptent dans ce total, mais le code et les commentaires de code ne comptent pas.)
+
+- Inclure au moins quatre graphiques pertinents avec des interprétations, en utilisant au moins deux fonctions `geom` différentes, et un tableau de données bien mis en forme.
+
+- Être soigné et professionnel, adapté à un public externe.
+
+- Suivre de près le barème présenté en annexe.
+
+# **Inspiration**
+
+Le choix du sujet vous appartient entièrement. Une approche courante consiste à choisir une variable d'intérêt (par exemple un comportement de planification familiale), puis à montrer comment elle varie selon des groupes sociodémographiques (âge, éducation, richesse, etc.).
+
+Les rapports suivants, rédigés en français par d'anciens étudiants RFB, illustrent cette approche :
+
+- [Couverture vaccinale antirougeoleuse en RDC](https://the-graph-courses.github.io/rfb_2026_t3_materials/rfb_final_project/exemplar_final_projects/wilfried_tembele.html){target="_blank"}
+
+- [Violence sexuelle par un partenaire intime en Gambie](https://the-graph-courses.github.io/rfb_2026_t3_materials/rfb_final_project/exemplar_final_projects/joel_kosianza.html){target="_blank"}
+
+- [Violences domestiques et accès aux soins en Angola](https://the-graph-courses.github.io/rfb_2026_t3_materials/rfb_final_project/exemplar_final_projects/kiama_tresor.html){target="_blank"}
+
+- [Besoins non satisfaits en planification familiale en RDC](https://the-graph-courses.github.io/rfb_2026_t3_materials/rfb_final_project/exemplar_final_projects/mbiya_henri.html){target="_blank"}
+
+# **Étape 1 : Obtenez les données, parcourez les variables et choisissez un sujet**
+
+Nous avons compilé un sous-ensemble de données DHS pour vous : les derniers jeux de données de recodage individuel des femmes (IR) pour la plupart des pays enquêtés depuis 2003.
+
+**Pour y accéder, suivez ce [lien](https://drive.google.com/drive/folders/1J0gw4qpfbB8bYFbXx8QcsQEWgJSVwp_P?usp=share_link){target="_blank"}.** Choisissez un pays, téléchargez les données et décompressez le dossier.
+
+Créez ensuite un nouveau projet RStudio pour votre analyse et placez les fichiers décompressés dans le sous-dossier `"data"` de votre projet.
+
+Parmi les fichiers du dossier décompressé, les principaux à retenir sont :
+
+-   le fichier .DTA. C'est le fichier principal de l'enquête, que vous importerez dans R.
+
+-   le fichier .MAP. C'est un dictionnaire de données. Vous pouvez l'ouvrir dans RStudio. Il contient les noms des variables (par ex. V002) et leurs libellés (par ex. *Household number*), ainsi que les valeurs possibles des variables facteurs. Vous pouvez vous en servir pour trouver un sujet d'analyse. Si vous travaillez sur un sujet comme le VIH, cherchez le mot `"HIV"` dans le fichier .MAP, puis parcourez les variables pertinentes.
+
+    **Le dictionnaire de données est en anglais.** Cherchez donc les termes anglais (`HIV` et non `VIH` ; `wealth`, `education`, etc.).
+
+-   le fichier .DO. Il est nécessaire parce que les variables du dictionnaire .MAP ne correspondent pas toujours aux vrais noms de colonnes. Le fichier .DO liste les noms de colonnes *exactement* tels qu'ils apparaissent dans les données brutes. C'est aussi un fichier texte ouvrable dans RStudio.
+
+    Ce fichier est particulièrement utile pour les variables qui concernent les enfants. Par exemple, la variable B0 indique si l'enfant d'une femme enquêtée est un jumeau. Dans le fichier .MAP, elle apparaît comme B0, mais dans le fichier .DO et dans le jeu de données, vous ne trouverez que les noms `b0_01`, `b0_02`, etc., éventuellement jusqu'à `b0_20`, chaque variable correspondant à un enfant de la femme enquêtée. (Pour analyser ce type de variables, vous aurez peut-être besoin de pivoter les données et de faire un peu plus de manipulation.)
+
+Pour vous aider à choisir un sujet et des variables, ces ressources peuvent aussi être utiles :
+
+-   Le [Guide to DHS Statistics](https://dhsprogram.com/data/Guide-to-DHS-Statistics){target="_blank"} : si vous étudiez le VIH, allez à la section HIV, cliquez sur un sous-thème (par exemple *Prior HIV Testing*), et vous verrez une liste de variables pertinentes.
+
+-   Le [manuel de recodage DHS](https://dhsprogram.com/pubs/pdf/DHSG4/Recode7_DHS_10Sep2018_DHSG4.pdf){target="_blank"}, plus détaillé que les fichiers .MAP.
+
+-   Les [publications officielles du DHS](https://dhsprogram.com/publications/index.cfm){target="_blank"}. Les variables couvertes varient d'une enquête à l'autre, donc un peu d'essai-erreur peut être nécessaire.
+
+# **Étape 2 : Importez votre jeu de données dans R**
+
+Vous avez déjà pratiqué cette étape à l'atelier 10. Pour importer le fichier .DTA, utilisez la fonction `read_dta()` du package {haven}. Si l'importation de l'ensemble du jeu de données est trop longue, utilisez l'argument `col_select` de `read_dta()` pour n'importer que certaines colonnes. Par exemple :
+
+```{r eval = F}
+# sélectionner trois variables par leur nom
+ir_brut <- haven::read_dta(here("data/NGIR7BFL.DTA"),
+    col_select = c(caseid, v000, v001)
+)
+```
+
+REMARQUE : les noms de variables listés dans le fichier .MAP sont en majuscules (V001), mais dans le fichier .DTA ils sont en minuscules. Convertissez donc TOUTES les lettres des noms de variables en minuscules dans votre code.
+
+Si R ne trouve pas une colonne que vous avez sélectionnée, vérifiez le fichier .DO.
+
+Autre point sur l'importation : la fonction `read_dta()` lit les variables facteurs comme un type spécial appelé données **étiquetées** (*labelled*). Cela peut poser problème pour les analyses suivantes, donc nous recommandons de les convertir en facteurs R habituels avec `haven::as_factor()`. Par exemple :
+
+```{r eval = F}
+ir_propre <-
+    ir_brut %>%
+    haven::as_factor()
+```
+
+Attention : il existe aussi une fonction `as_factor()` dans {forcats}, et `as.factor()` dans R de base. Ajoutez bien `haven::` devant `as_factor()` pour utiliser la bonne fonction avec les fichiers .DTA.
+
+# **Étape 3 : Rédigez vos analyses**
+
+Une fois les données et le sujet en main, vous pouvez commencer l'analyse à proprement parler.
+
+Votre sujet et vos variables peuvent changer en cours de route : c'est normal.
+
+Pensez à relire le barème et les exemples d'anciens étudiants pour vous guider.
+
+# **Étape 4 : Exportez et soumettez votre travail**
+
+Une fois votre travail terminé, pour le soumettre, vous devez :
+
+-   Nommer (ou renommer) votre fichier Rmd `prenom_nom_rfb_final.Rmd`.
+
+-   Tricoter votre Rmd vers l'un des formats suivants : HTML, PDF ou DOCX. Le fichier de sortie doit aussi s'appeler `prenom_nom_rfb_final`.
+
+-   Télécharger vos documents (le Rmd et le fichier tricoté) sur la page de soumission.
+
+# **Annexe 1 : Barème**
+
+Nous utiliserons le barème suivant pour évaluer votre travail. Référez-vous-y de près et assurez-vous de répondre à chaque exigence !
+
+### **Manipulation des données (35%)**
+
+Démontrez que vous avez utilisé des techniques de manipulation de données appropriées pour préparer les données à l'analyse.
+
+**Importer et nettoyer les données DHS** : Utilisez le package {haven} pour importer et convertir les variables du jeu de données DHS, et renommez les variables de manière appropriée.
+
+**Compétence avec `{dplyr}`** : Démontrez votre aisance en manipulation de données en utilisant AU MOINS quatre de ces huit fonctions couvertes dans le chapitre sur la manipulation des données : `select()`, `filter()`, `mutate()`, `case_when()`, `group_by()`, `summarize()`, `pivot_wider()` et `pivot_longer()`.
+
+### **Visualisation des données (35%)**
+
+**Compétence avec `{ggplot2}`** : Incluez AU MOINS quatre graphiques et utilisez AU MOINS deux fonctions `geom` différentes.
+
+**Qualité et professionnalisme** : Les figures doivent être claires, informatives et esthétiquement soignées. Ajoutez des titres appropriés et nettoyez tout texte d'étiquette désordonné. Nous recommandons d'utiliser un `theme` et un schéma de couleurs cohérents pour un rendu professionnel.
+
+**Tableaux** : Incluez AU MOINS un [tableau d'affichage](https://the-graph-courses.github.io/r_foundations_wp/lessons/FR_ls06_rmarkdown.html#74_Affichage_des_tableaux){target="_blank"} créé avec l'un des packages suivants : `{flextable}`, `{gt}` ou `{reactable}`.
+
+### **Utilisation de Rmarkdown (20%)**
+
+Démontrez que vous savez utiliser R Markdown pour créer un document professionnel. Cela implique un formatage approprié des niveaux de titres et des fonctionnalités de R Markdown, notamment le [code en ligne](https://the-graph-courses.github.io/r_foundations_wp/lessons/FR_ls06_rmarkdown.html#73_Code_entre_les_lignes){target="_blank"}. Utilisez les [options de blocs de code](https://the-graph-courses.github.io/r_foundations_wp/lessons/FR_ls06_rmarkdown.html#72_Options_de_bloc_de_code_R){target="_blank"} appropriées pour afficher ou masquer les sorties de code dans le document final.
+
+### **Bonnes pratiques de programmation (10%)**
+
+**Syntaxe et formatage du code** : Écrivez un code propre et bien organisé, facile à lire et à comprendre. Cela inclut une indentation appropriée, des commentaires, un piping soigné, et des noms de variables clairs et descriptifs.
+
+**Structure du dossier de projet** : Donnez un nom approprié à votre projet, et organisez vos fichiers dans des sous-dossiers logiques (par exemple `data`, `images`, etc.). Relisez la [leçon sur les projets RStudio](https://the-graph-courses.github.io/r_foundations_wp/lessons/FR_ls05_projects.html){target="_blank"} pour rafraîchir votre mémoire.
+
+# **Annexe 2 : Plus d'informations sur le DHS**
+
+Les Enquêtes démographiques et de santé (EDS/DHS) sont une série d'enquêtes standardisées menées périodiquement dans les pays en développement. Elles collectent des données sur divers aspects de la population, de la santé et de la nutrition.
+
+Vous pouvez en savoir plus sur le programme DHS et les différentes enquêtes qu'il réalise en regardant la [vidéo](https://www.youtube.com/watch?v=abP6xeb50Do){target="_blank"} suivante. Pour entendre parler des différents types de données collectées par le DHS, vous pouvez regarder cette [vidéo](https://www.youtube.com/watch?v=BmiSDPebmgc){target="_blank"}.
+
+Enfin, pour voir le genre de rapports produits à partir des enquêtes DHS, visitez cette [page](https://dhsprogram.com/publications/index.cfm){target="_blank"}.
+
+# **Annexe 3 : À faire et à ne pas faire**
+
+-   [***Ne laissez pas***]{style="color: red;"} de fautes d'orthographe ou de grammaire dans votre rapport final. ChatGPT est un outil rapide et facile pour la relecture.
+
+-   [***N'incluez pas***]{style="color: red;"} de blocs de code dans le document final (votre rapport tricoté) ! Utilisez `echo = F` pour masquer le code.
+
+-   [***Utilisez***]{style="color: green;"} du [code en ligne](https://the-graph-courses.github.io/r_foundations_wp/lessons/FR_ls06_rmarkdown.html#73_Code_entre_les_lignes){target="_blank"} pour insérer les statistiques dans le texte de votre rapport.
+
+-   [***Structurez***]{style="color: green;"} votre rapport avec des titres de sections qui ont un enchaînement logique (par exemple Introduction, Objectifs, Résultats). Vous pouvez aussi utiliser des titres moins traditionnels, comme dans [cette](https://dhsprogram.com/pubs/pdf/AB20/AB20.pdf){target="_blank"} brève d'analyse DHS.
+
+# **Annexe 4 : Autres FAQ**
+
+**Mes pourcentages et chiffres diffèrent légèrement de ceux des publications officielles du DHS. Que se passe-t-il ?**
+
+C'est parce que les rapports officiels utilisent une analyse pondérée, que nous ne vous avons pas encore enseignée. C'est normal. Si le sujet vous intéresse, vous trouverez un petit exemple d'analyse d'enquête pondérée [ici](https://github.com/the-graph-courses/rbp_cohort_0_final_assessment/blob/main/scripts/example_of_weighted_survey_analysis.R){target="_blank"}.
+
+**Le rapport doit-il être en français ?**
+
+Vous pouvez rédiger le rapport en français, en anglais ou en espagnol.
+
+**Puis-je utiliser des données d'une enquête autre que l'Enquête démographique et de santé (DHS) ?**
+
+Oui, mais vous devrez d'abord obtenir l'autorisation de l'un de nos instructeurs.
+
+**Puis-je créer un tableau de bord avec flexdashboard au lieu d'un document HTML/PDF plat ?**
+
+Oui. Tout format basé sur Rmarkdown est acceptable !

@@ -10,11 +10,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<meta name="author" content="GRAPH Courses Team" />
+<meta name="author" content="Cedric Mwanga" />
 
-<meta name="date" content="2025-08-22" />
+<meta name="date" content="2025-08-26" />
 
-<title>Instructions pour le projet de fin d’études RFB</title>
+<title>Determinants de l’utilisation des méthodes contraceptives modernes chez les femmes en âge de procréer (15 à 49 ans) en République Démocratique du Congo (RDC)</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -27,6 +27,80 @@ document.addEventListener('DOMContentLoaded', function(e) {
     a = h.attributes;
     while (a.length > 0) h.removeAttribute(a[0].name);
   }
+});
+</script>
+<style type="text/css">.tabwid {
+font-size: initial;
+padding-bottom: 1em;
+}
+.tabwid table{
+border-spacing:0px !important;
+border-collapse:collapse;
+line-height:1;
+margin-left:auto;
+margin-right:auto;
+border-width: 0;
+border-color: transparent;
+caption-side: top;
+}
+.tabwid-caption-bottom table{
+caption-side: bottom;
+}
+.tabwid_left table{
+margin-left:0;
+}
+.tabwid_right table{
+margin-right:0;
+}
+.tabwid td, .tabwid th {
+padding: 0;
+}
+.tabwid a {
+text-decoration: none;
+}
+.tabwid thead {
+background-color: transparent;
+}
+.tabwid tfoot {
+background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+.katex-display {
+margin: 0 0 !important;
+}
+</style>
+<script>document.addEventListener("DOMContentLoaded", function(event) {
+  var els = document.querySelectorAll(".tabwid");
+  var tabwid_link = document.querySelector('link[href*="tabwid.css"]')
+  if (tabwid_link === null) {
+    const tabwid_styles = document.evaluate("//style[contains(., 'tabwid')]", document, null, XPathResult.ANY_TYPE, null );
+    tabwid_link = tabwid_styles.iterateNext();
+  }
+
+  Array.prototype.forEach.call(els, function(template) {
+      const dest = document.createElement("div");
+      template.parentNode.insertBefore(dest, template.nextSibling)
+      dest.setAttribute("class", "flextable-shadow-host");
+      const fantome = dest.attachShadow({mode: 'open'});
+      fantome.appendChild(template);
+      if (tabwid_link !== null) {
+        fantome.appendChild(tabwid_link.cloneNode(true));
+      }
+  });
+
+  const shadowHosts = document.querySelectorAll('.flextable-shadow-host:not(:has(div > table.no-shadow-dom))');
+  shadowHosts.forEach(host => {
+    if (host.shadowRoot) {
+      const spanElements = host.shadowRoot.querySelector('div > table > caption > span[id]');
+      if (spanElements) {
+        const id = spanElements.getAttribute("id");
+        host.setAttribute("id", id);
+      }
+    }
+  });
+
 });
 </script>
 
@@ -49,10 +123,11 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
 <header>
 <div class="inner">
-<h1 class="title toc-ignore">Instructions pour le projet de fin d’études
-RFB</h1>
-<h3 class="author">GRAPH Courses Team</h3>
-<h3 class="date">2025-08-22</h3>
+<h1 class="title toc-ignore">Determinants de l’utilisation des méthodes
+contraceptives modernes chez les femmes en âge de procréer (15 à 49 ans)
+en République Démocratique du Congo (RDC)</h1>
+<h3 class="author">Cedric Mwanga</h3>
+<h3 class="date">2025-08-26</h3>
 </div>
 </header>
 
@@ -60,32 +135,31 @@ RFB</h1>
 <div id="TOC" class="toc">
 <div class="inner">
 <ul>
-<li><a href="#introduction" id="toc-introduction">Introduction</a></li>
-<li><a href="#exigences-de-lexercice" id="toc-exigences-de-lexercice">Exigences de l’exercice</a>
+<li><a href="#introduction" id="toc-introduction">1. Introduction</a>
 <ul>
-<li><a href="#exigences-minimales" id="toc-exigences-minimales">Exigences minimales</a></li>
-<li><a href="#bar%C3%A8me-de-notation-complet" id="toc-barème-de-notation-complet">Barème de notation complet</a>
-<ul>
-<li><a href="#manipulation-des-donn%C3%A9es-35" id="toc-manipulation-des-données-35">Manipulation des données
-(35%)</a></li>
-<li><a href="#visualisation-des-donn%C3%A9es-35" id="toc-visualisation-des-données-35">Visualisation des données
-(35%)</a></li>
-<li><a href="#utilisation-de-rmarkdown-20" id="toc-utilisation-de-rmarkdown-20">Utilisation de Rmarkdown
-(20%)</a></li>
-<li><a href="#bonnes-pratiques-de-programmation-10" id="toc-bonnes-pratiques-de-programmation-10">Bonnes pratiques de
-programmation (10%)</a></li>
+<li><a href="#contexte-de-la-rdc" id="toc-contexte-de-la-rdc">Contexte
+de la RDC</a></li>
+<li><a href="#objectif-principal" id="toc-objectif-principal">Objectif
+principal</a></li>
+<li><a href="#objectif-sp%C3%A9cifiques" id="toc-objectif-spécifiques">Objectif spécifiques</a></li>
 </ul></li>
-</ul></li>
-<li><a href="#derni%C3%A8re-%C3%A9tape-exportez-et-soumettez-votre-travail" id="toc-dernière-étape-exportez-et-soumettez-votre-travail">Dernière
-étape : Exportez et soumettez votre travail</a></li>
-<li><a href="#annexe-1-rapports-exemples" id="toc-annexe-1-rapports-exemples">Annexe 1 : Rapports
-exemples</a></li>
-<li><a href="#annexe-2-informations-sur-les-dhs" id="toc-annexe-2-informations-sur-les-dhs">Annexe 2 : Informations sur
-les DHS</a></li>
-<li><a href="#annexe-3-%C3%A0-faire-et-%C3%A0-ne-pas-faire" id="toc-annexe-3-à-faire-et-à-ne-pas-faire">Annexe 3 : À faire et à ne
-pas faire</a></li>
-<li><a href="#annexe-4-autres-faq" id="toc-annexe-4-autres-faq">Annexe 4
-: Autres FAQ</a></li>
+<li><a href="#description-des-donn%C3%A9es-d%C3%A9mographiques-de-base" id="toc-description-des-données-démographiques-de-base">2. Description
+des données démographiques de base</a></li>
+<li><a href="#age-des-femmes-et-utilisation-des-m%C3%A9thodes-contraceptives-modernes." id="toc-age-des-femmes-et-utilisation-des-méthodes-contraceptives-modernes.">3.Age
+des femmes et utilisation des méthodes contraceptives modernes.</a></li>
+<li><a href="#niveau-d%C3%A9ducation-et-ladoption-des-m%C3%A9thodes-modernes-de-contraception." id="toc-niveau-déducation-et-ladoption-des-méthodes-modernes-de-contraception.">4.Niveau
+d’éducation et l’adoption des méthodes modernes de
+contraception.</a></li>
+<li><a href="#impact-du-statut-matrimonial-sur-lutilisation-de-la-contraception-moderne." id="toc-impact-du-statut-matrimonial-sur-lutilisation-de-la-contraception-moderne.">5.
+Impact du statut matrimonial sur l’utilisation de la contraception
+moderne.</a></li>
+<li><a href="#utilisation-des-m%C3%A9thodes-modernes-selon-le-lieu-de-r%C3%A9sidence-urbainrural." id="toc-utilisation-des-méthodes-modernes-selon-le-lieu-de-résidence-urbainrural.">6.
+Utilisation des méthodes modernes selon le lieu de résidence
+(urbain/rural).</a></li>
+<li><a href="#association-entre-le-quintile-de-richesse-et-lusage-des-contraceptifs-moderne." id="toc-association-entre-le-quintile-de-richesse-et-lusage-des-contraceptifs-moderne.">7.
+Association entre le quintile de richesse et l’usage des contraceptifs
+moderne.</a></li>
+<li><a href="#conclusion" id="toc-conclusion">8. Conclusion</a></li>
 </ul>
 </div>
 </div>
@@ -94,193 +168,129 @@ pas faire</a></li>
   <div class="inner clearfix">
     <section id="main-content">
 <div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>Chers étudiants,</p>
-<p>Félicitations pour avoir maîtrisé les fondamentaux de l’analyse de
-données en R ! Jusqu’à présent dans ce cours, vous avez accompli les
-éléments suivants :</p>
+<h1>1. Introduction</h1>
+<div id="contexte-de-la-rdc" class="section level2">
+<h2>Contexte de la RDC</h2>
+<p>La République Démocratique du Congo (RDC), pays d’Afrique centrale,
+s’étend sur plus de 2,3 millions de km² et compte une population de plus
+de 100 millions d’habitants en 2025. Sa population est très jeune, avec
+plus de la moitié âgée de moins de 18 ans, ce qui exerce une forte
+pression sur les systèmes de santé, d’éducation et d’emploi.</p>
+<p>Dans le domaine de la santé reproductive, la planification familiale
+représente un enjeu crucial.</p>
+</div>
+<div id="objectif-principal" class="section level2">
+<h2>Objectif principal</h2>
+<p>L’objetif principal de l’etude est d’analyser les déterminants
+sociodémographiques et économiques associés à l’utilisation des méthodes
+contraceptives modernes chez les femmes âgées de 15 à 49 ans en RDC, à
+partir des données de l’Enquête Démographique et de Santé (EDS).</p>
+</div>
+<div id="objectif-spécifiques" class="section level2">
+<h2>Objectif spécifiques</h2>
+<p>De manière plus détaillée, la recherche vise à :</p>
 <ul>
-<li><p>Développé une solide compréhension des bases de la programmation
-en R, de RStudio, de l’exploration des données et de R Markdown, tout en
-collaborant avec vos pairs.</p></li>
-<li><p>Appris à gérer les données désordonnées avec aisance en utilisant
-les fonctions <code>{dplyr}</code> pour manipuler les ensembles de
-données, et acquis les compétences pour nettoyer, filtrer et transformer
-les données pour l’analyse et la visualisation.</p></li>
-<li><p>Appris à communiquer clairement les résultats en créant des
-visualisations de données impressionnantes avec
-<code>{ggplot2}</code>.</p></li>
-</ul>
-<p>Alors que nous arrivons à la fin de votre parcours d’apprentissage de
-3 mois, il est temps de montrer votre expertise en analyse de données
-avec le projet Capstone !</p>
-</div>
-<div id="exigences-de-lexercice" class="section level1">
-<h1>Exigences de l’exercice</h1>
-<p>Pour le projet de fin d’études, vous utiliserez les données de
-l’Enquête Démographique et de Santé (DHS) pour créer un rapport basé sur
-Rmarkdown, en vous concentrant sur un pays spécifique et un sujet de
-votre choix. Des exemples de rapports d’anciens élèves de RBB sont
-fournis en Annexe 1.</p>
-<div id="exigences-minimales" class="section level2">
-<h2>Exigences minimales</h2>
-<p>Le rapport final doit :</p>
-<ul>
-<li><p>Analyser les données de l’un des ensembles de données de
-l’enquête individuelle des femmes au niveau du pays que nous avons
-compilés pour vous <a href="https://drive.google.com/drive/u/0/folders/1J0gw4qpfbB8bYFbXx8QcsQEWgJSVwp_P">ici</a>,
-ou une alternative approuvée (voir Annexe 4).</p></li>
-<li><p>Contenir un minimum de 600 mots de texte descriptif.</p></li>
-<li><p>Inclure au moins trois graphiques significatifs et un tableau de
-données.</p></li>
-<li><p>Être professionnel et présentable à un public.</p></li>
-</ul>
-<p>Les soumissions qui ne répondent pas à ces exigences minimales ne
-seront pas évaluées et l’auteur sera invité à soumettre à nouveau.</p>
-</div>
-<div id="barème-de-notation-complet" class="section level2">
-<h2>Barème de notation complet</h2>
-<p>Nous utiliserons le barème suivant pour évaluer votre travail. En
-rédigeant votre rapport, vous devriez vous référer étroitement à cette
-liste et vous assurer de répondre à chaque exigence !</p>
-<div id="manipulation-des-données-35" class="section level3">
-<h3>Manipulation des données (35%)</h3>
-<p>Démontrez que vous avez utilisé des techniques de manipulation de
-données appropriées pour préparer les données à l’analyse.</p>
-<p><strong>Importer et nettoyer les données DHS</strong> : Utilisez le
-package {haven} pour importer et convertir les variables de l’ensemble
-de données DHS. Renommez les variables de manière appropriée. Ceci a été
-couvert en détail dans l’exercice de l’atelier 10 et le guide de
-pré-travail de la semaine 11.</p>
-<p><strong>Compétence avec <code>{dplyr}</code></strong> : Utilisez au
-moins quatre de ces huit fonctions couvertes dans le chapitre sur la
-manipulation des données : <code>select()</code>, <code>filter()</code>,
-<code>mutate()</code>, <code>case_when()</code>,
-<code>group_by()</code>, <code>summarize()</code>,
-<code>pivot_wider()</code> et <code>pivot_longer()</code>.</p>
-</div>
-<div id="visualisation-des-données-35" class="section level3">
-<h3>Visualisation des données (35%)</h3>
-<p><strong>Compétence avec <code>{ggplot2}</code></strong> : Incluez au
-moins trois graphiques et utilisez au moins 2 fonctions
-<code>geom</code> différentes. Démontrez que vous pouvez utiliser au
-moins deux des fonctionnalités suivantes de
-<strong><code>{ggplot2}</code></strong> : fonctions <code>scale</code>,
-ajustements <code>position</code>, fonctions <code>coord</code>, ou
-fonctions <code>facet</code>.</p>
-<p><strong>Qualité et professionnalisme</strong> : Les figures sont
-claires, informatives et esthétiquement agréables. Ajoutez des titres
-appropriés et nettoyez tout texte d’étiquette désordonné sur vos
-figures. Nous vous recommandons d’utiliser un <code>theme</code> et un
-schéma de couleurs cohérents pour maintenir un aspect professionnel.</p>
-<p><strong>Tableaux</strong> : Incluez au moins un <a href="https://the-graph-courses.github.io/r_foundations_wp/lessons/FR_ls06_rmarkdown.html#74_Affichage_des_tableaux">tableau
-d’affichage</a> en utilisant l’un des packages suivants :
-<code>{flextable}</code>, <code>{gt}</code>, ou
-<code>{reactable}</code>.</p>
-</div>
-<div id="utilisation-de-rmarkdown-20" class="section level3">
-<h3>Utilisation de Rmarkdown (20%)</h3>
-<p>Démontrez que vous pouvez utiliser R Markdown pour créer un document
-professionnel. Cela implique d’utiliser un formatage approprié des
-niveaux de titres et des fonctionnalités de RMarkdown telles que le <a href="https://the-graph-courses.github.io/r_foundations_wp/lessons/FR_ls06_rmarkdown.html#73_Code_entre_les_lignes">code
-en ligne</a>. Utilisez les <a href="https://the-graph-courses.github.io/r_foundations_wp/lessons/FR_ls06_rmarkdown.html#72_Options_de_bloc_de_code_R">options
-de bloc de code</a> appropriées pour afficher ou masquer les sorties de
-code du document final.</p>
-</div>
-<div id="bonnes-pratiques-de-programmation-10" class="section level3">
-<h3>Bonnes pratiques de programmation (10%)</h3>
-<p><strong>Syntaxe et formatage du code</strong> : Utilisez un code
-propre et bien organisé qui est facile à lire et à comprendre. Cela
-inclut l’utilisation d’une indentation appropriée, de commentaires sur
-votre code, d’un piping soigné et de noms de variables clairs et
-descriptifs.</p>
-<p><strong>Structure du dossier de projet</strong> : Donnez à votre
-projet un nom approprié et organisez vos fichiers dans des sous-dossiers
-logiques (par exemple, données, rmd, images, etc.). Révisez la <a href="https://the-graph-courses.github.io/r_foundations_wp/lessons/FR_ls05_projects.html">leçon
-sur les projets RStudio</a> pour rafraîchir votre mémoire.</p>
-</div>
-</div>
-</div>
-<div id="dernière-étape-exportez-et-soumettez-votre-travail" class="section level1">
-<h1>Dernière étape : Exportez et soumettez votre travail</h1>
-<p>Une fois votre travail terminé, pour le soumettre, vous devez
-tricoter votre Rmd pour produire votre rapport final prêt à être publié
-! Cela peut être au format HTML/PDF ou DOCX.</p>
-<p>Pour soumettre, vous devez compresser votre dossier de projet et le
-télécharger sur la page de l’assignation.</p>
-</div>
-<div id="annexe-1-rapports-exemples" class="section level1">
-<h1>Annexe 1 : Rapports exemples</h1>
-<p>Pour avoir une idée de ce que nous recherchons, examinez ces
-soumissions exemplaires d’étudiants passés :</p>
-<ul>
-<li><a href="https://the-graph-courses.github.io/rbb_q1_2024_materials/sample_capstone_projects/Ariong_Emmanuel_final_project.html">Emmanuel
-Ariong</a></li>
-<li><a href="https://the-graph-courses.github.io/rbb_q1_2024_materials/sample_capstone_projects/CapstoneProject_final_Dickman_Gareta.html">Dickman
-Pangaume Gareta</a></li>
-<li><a href="https://the-graph-courses.github.io/rbb_q1_2024_materials/sample_capstone_projects/Final_Project_HolyAndriamasy.html">Holy
-Andriamasy</a></li>
-<li><a href="https://the-graph-courses.github.io/rbb_q1_2024_materials/sample_capstone_projects/rbb_final_project.html">Christian
-Duru</a></li>
-<li><a href="https://the-graph-courses.github.io/rbb_q1_2024_materials/sample_capstone_projects/perpetua_final_project.html">Perpetua
-Mbachu</a></li>
-</ul>
-<p>Remarquez comment ces rapports sont bien structurés et présentent une
-analyse perspicace sur un sujet de santé publique.</p>
-</div>
-<div id="annexe-2-informations-sur-les-dhs" class="section level1">
-<h1>Annexe 2 : Informations sur les DHS</h1>
-<p>Les Enquêtes Démographiques et de Santé (DHS) sont une série
-d’enquêtes standardisées menées périodiquement dans les pays en
-développement qui collectent des données sur divers aspects de la
-population, de la santé et de la nutrition.</p>
-<p>Vous pouvez en savoir plus sur le programme DHS et les différentes
-enquêtes qu’ils réalisent en regardant la <a href="https://www.youtube.com/watch?v=abP6xeb50Do">vidéo</a> suivante.
-Pour entendre parler des différents types de données que les DHS
-recueillent, vous pouvez regarder la <a href="https://www.youtube.com/watch?v=BmiSDPebmgc">vidéo</a>
-suivante.</p>
-<p>Enfin, pour voir le genre de rapports qui sont créés à partir des
-enquêtes DHS, visitez cette <a href="https://dhsprogram.com/publications/index.cfm">page</a>.</p>
-</div>
-<div id="annexe-3-à-faire-et-à-ne-pas-faire" class="section level1">
-<h1>Annexe 3 : À faire et à ne pas faire</h1>
-<ul>
-<li><p>Ne laissez pas de fautes d’orthographe et de grammaire dans votre
-rapport final. ChatGPT est un outil rapide et facile pour la
-relecture.</p></li>
-<li><p>Ne pas inclure de blocs de code dans le document final (votre
-rapport tricoté).</p></li>
-<li><p>Utilisez du code en ligne pour référencer les statistiques dans
-le texte principal de votre rapport ! Pour un rappel sur comment faire
-cela, passez en revue la <a href="https://the-graph-courses.github.io/r_foundations_wp/lessons/FR_ls06_rmarkdown.html">leçon
-sur R Markdown</a> ou l’Atelier 3 : Défi 2.</p></li>
-<li><p>Structurez votre rapport avec des titres de sections qui ont un
-flux logique (par exemple, Introduction, Contexte, Objectifs, Résultats,
-Conclusions, Références). Vous pouvez également utiliser des titres de
-section non traditionnels comme dans <a href="https://dhsprogram.com/pubs/pdf/AB20/AB20.pdf">cette</a> brève
-analyse des DHS.</p></li>
+<li><p>Évaluer l’influence de l’âge des femmes sur l’utilisation des
+méthodes contraceptives modernes.</p></li>
+<li><p>Examiner l’effet du niveau d’éducation sur l’adoption des
+méthodes modernes de contraception.</p></li>
+<li><p>Analyser l’impact du statut matrimonial sur l’utilisation de la
+contraception moderne.</p></li>
+<li><p>Comparer l’utilisation des méthodes modernes selon le lieu de
+résidence (urbain/rural).</p></li>
+<li><p>Étudier l’association entre le quintile de richesse et l’usage
+des contraceptifs moderne.</p></li>
 </ul>
 </div>
-<div id="annexe-4-autres-faq" class="section level1">
-<h1>Annexe 4 : Autres FAQ</h1>
-<p><strong>Mes pourcentages et chiffres diffèrent légèrement de ceux vus
-dans les publications officielles des DHS. Qu’est-ce qui se passe
-?</strong></p>
-<p>Vos statistiques calculées différeront légèrement des chiffres
-officiels car ces rapports officiels utilisent une analyse pondérée, que
-nous ne vous avons pas encore enseignée. C’est normal. Pour ceux d’entre
-vous qui sont intéressés, vous pouvez trouver un petit exemple d’analyse
-d’enquête pondérée <a href="https://github.com/the-graph-courses/rbp_cohort_0_final_assessment/blob/main/scripts/example_of_weighted_survey_analysis.R">ici</a>.</p>
-<p><strong>Le rapport doit-il être en français ?</strong></p>
-<p>Vous êtes autorisé à rédiger le rapport en français, en anglais ou en
-espagnol.</p>
-<p><strong>Puis-je utiliser des données d’une enquête différente de
-l’Enquête Démographique et de Santé (DHS) ?</strong></p>
-<p>Oui, mais vous devrez d’abord obtenir l’autorisation de l’un de nos
-instructeurs.</p>
-<p><strong>Puis-je créer un tableau de bord en utilisant flexdashboard
-au lieu d’un document HTML/PDF plat ?</strong></p>
-<p>Oui. Tout format basé sur Rmarkdown est acceptable !</p>
+</div>
+<div id="description-des-données-démographiques-de-base" class="section level1">
+<h1>2. Description des données démographiques de base</h1>
+<p>En RDC, selon les données de l’EDS, le nombre total des femmes de 15
+à 49 ans enquetées est de 18 827 dont 63.7 % vivent en milieu rural et
+36.3 % en milieu urbain.</p>
+<p>Le pourcentage de femmes qui utilisent une methode de contraception
+moderne est de 6.9 %.</p>
+<p>Le tableau 1 presente la situation global de toutes ces femmes,
+reparties comme suit :<br><br> a. Concernant le millieu de residence :
+36.3% des femmes vivent en millieu urbain vs 63.7% en millieu rural;<br>
+b. Pour ce qui est du niveau d’education : 17.8% ont aucun niveau, 38.9%
+ont un niveau d’education primaire, 40.3% ont un niveau d’education
+secondaire et 3.0% ont un niveau d’education supérieur <br>
+c. S’agissant de la repartition des richesses : 23.2% sont plus
+pauvre,19.9% sont pauvres, 19.4% ont une richesse moyenne, 18.0% sont
+riches, et 19.5% sont plus riches <br> d. Pour ce qui est de
+l’utilisation de la contraception moderne : seules 6.9% des femmes
+utilisent la contraception moderne , tandis que 93.1% ne l’utilisent
+pas.<br></p>
+<div class="tabwid"><style>.cl-ea05a8a2{}.cl-e9fa3ba2{font-family:'Arial';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-e9fa3bb6{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-e9fd72c2{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-e9fd72cc{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-e9fd918a{width:1.882in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9fd9194{width:2.62in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9fd919e{width:1.33in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9fd919f{width:1.882in;background-color:transparent;vertical-align: top;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9fd91a0{width:2.62in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9fd91a8{width:1.33in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9fd91a9{width:1.882in;background-color:transparent;vertical-align: top;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9fd91aa{width:2.62in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9fd91ab{width:1.33in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9fd91ac{width:1.882in;background-color:transparent;vertical-align: top;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9fd91b2{width:2.62in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e9fd91b3{width:1.33in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0.75pt solid rgba(102, 102, 102, 1.00);border-right: 0.75pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-ea05a8a2"><caption style="display:table-caption;margin:0pt;text-align:center;border-bottom: 0.00pt solid transparent;border-top: 0.00pt solid transparent;border-left: 0.00pt solid transparent;border-right: 0.00pt solid transparent;padding-top:3pt;padding-bottom:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;"><span>Tableau 1 : Les indicateurs démographiques et contraceptifs</span></caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-e9fd918a"><p class="cl-e9fd72c2"><span class="cl-e9fa3ba2">Section</span></p></th><th class="cl-e9fd9194"><p class="cl-e9fd72c2"><span class="cl-e9fa3ba2">Indicateur</span></p></th><th class="cl-e9fd919e"><p class="cl-e9fd72c2"><span class="cl-e9fa3ba2">Valeur</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td rowspan="3" class="cl-e9fd919f"><p class="cl-e9fd72cc"><span class="cl-e9fa3ba2">Apercu</span></p></td><td class="cl-e9fd91a0"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">Nombre total de femmes</span></p></td><td class="cl-e9fd91a8"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">18 827</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9fd91aa"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">Age moyen</span></p></td><td class="cl-e9fd91ab"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">28</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9fd91aa"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">Age median</span></p></td><td class="cl-e9fd91ab"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">27</span></p></td></tr><tr style="overflow-wrap:break-word;"><td rowspan="4" class="cl-e9fd91ac"><p class="cl-e9fd72cc"><span class="cl-e9fa3ba2">Éducation</span></p></td><td class="cl-e9fd91b2"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">no education</span></p></td><td class="cl-e9fd91b3"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">3 357 (17.8%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9fd91b2"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">primary</span></p></td><td class="cl-e9fd91b3"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">7 320 (38.9%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9fd91b2"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">secondary</span></p></td><td class="cl-e9fd91b3"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">7 589 (40.3%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9fd91b2"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">higher</span></p></td><td class="cl-e9fd91b3"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">561 (3.0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td rowspan="3" class="cl-e9fd91ac"><p class="cl-e9fd72cc"><span class="cl-e9fa3ba2">Statut matrimonial</span></p></td><td class="cl-e9fd91b2"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">never in union</span></p></td><td class="cl-e9fd91b3"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">4 545 (24.1%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9fd91b2"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">currently in union/living with a man</span></p></td><td class="cl-e9fd91b3"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">12 448 (66.1%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9fd91b2"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">formerly in union/living with a man</span></p></td><td class="cl-e9fd91b3"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">1 834 (9.7%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td rowspan="2" class="cl-e9fd91ac"><p class="cl-e9fd72cc"><span class="cl-e9fa3ba2">Résidence</span></p></td><td class="cl-e9fd91b2"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">urban</span></p></td><td class="cl-e9fd91b3"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">6 827 (36.3%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9fd91b2"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">rural</span></p></td><td class="cl-e9fd91b3"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">12 000 (63.7%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td rowspan="5" class="cl-e9fd91ac"><p class="cl-e9fd72cc"><span class="cl-e9fa3ba2">Richesse</span></p></td><td class="cl-e9fd91b2"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">poorest</span></p></td><td class="cl-e9fd91b3"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">4 366 (23.2%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9fd91b2"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">poorer</span></p></td><td class="cl-e9fd91b3"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">3 740 (19.9%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9fd91b2"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">middle</span></p></td><td class="cl-e9fd91b3"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">3 655 (19.4%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9fd91b2"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">richer</span></p></td><td class="cl-e9fd91b3"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">3 390 (18.0%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9fd91b2"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">richest</span></p></td><td class="cl-e9fd91b3"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">3 676 (19.5%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td rowspan="2" class="cl-e9fd91ac"><p class="cl-e9fd72cc"><span class="cl-e9fa3ba2">Contraception moderne</span></p></td><td class="cl-e9fd91b2"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">N’utilise pas de méthode moderne</span></p></td><td class="cl-e9fd91b3"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">17 526 (93.1%)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e9fd91b2"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">Utilise une méthode moderne</span></p></td><td class="cl-e9fd91b3"><p class="cl-e9fd72c2"><span class="cl-e9fa3bb6">1 301 (6.9%)</span></p></td></tr></tbody></table></div>
+</div>
+<div id="age-des-femmes-et-utilisation-des-méthodes-contraceptives-modernes." class="section level1">
+<h1>3.Age des femmes et utilisation des méthodes contraceptives
+modernes.</h1>
+<p>En RDC, l’âge joue un rôle, avec une utilisation des méthodes
+modernes légèrement plus élevée chez les 20–35 ans. Mais l’effet n’est
+pas très marqué : globalement, dans tous les groupes d’âge, la majorité
+des femmes n’utilisent pas de méthodes modernes. Cela reflète une faible
+couverture contraceptive moderne en RDC, quel que soit l’âge.<br> <img role="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqAAAAHgCAMAAABNUi8GAAABVlBMVEUAAAAAADoAAGYAOjoAOmYAOpAAZpAAZrYAv8Q6AAA6ADo6AGY6OgA6OmY6OpA6ZmY6ZpA6ZrY6kJA6kLY6kNtNTU1NTW5NTY5NbqtNjshmAABmADpmAGZmOgBmOjpmOmZmOpBmZmZmkJBmkLZmkNtmtpBmtrZmtttmtv9uTU1uTW5uTY5ubo5ubqtuq+SOTU2OTW6OTY6Obk2OyP+QOgCQOjqQOmaQZgCQZjqQZmaQkDqQkGaQkLaQtpCQttuQ27aQ2/+rbk2rbm6rbo6rq8iryKur5OSr5P+2ZgC2Zjq2kDq2tma2tpC2ttu225C229u22/+2/9u2///Ijk3Ijo7I/8jI///bkDrbkGbbkJDbtmbbtpDb27bb29vb2//b/7bb/9vb///kq27k/8jk///r6+v4dm3/tmb/yI7/25D/27b/29v/5Kv//7b//8j//9v//+T////JLqGnAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAZl0lEQVR4nO2d+3vjxnmFobW3DHeTJmnE9a6cbXpJa9muKW+lJm1c21q7qVg3TVyxllq7qSt6XYqObvj/f+lcMMAAIjggRAg4H877PLuEoDkz5ODVYAa8RTEhHSZq+w4QsgoKSjoNBSWdhoKSTkNBSaehoKTTUFDSaSgo6TR3F/T0wbG5vdzZjuPFz47j64OHZ+7fsoArE6j3+mCw/p1ZXXetKtN6N3lPSFU2LKj+ISSoKxOot5ZNq+uuL6h7kJu6J6QqDQiqWXVoKh5sAYKSu7NRQa8Poijazo2g138fRVtv6d9/+X219fM4KxPH3z2Potc/Nzr/5vv6l44vh9HrvzM26SI/UEW8ihSL4faXQ1V+Pox+dJaVSuv++nlSm2shXKUtceiH0rvl6h2cRg8+dw+kmNBVqj6Ym33Zo7Tdc7kzKGs4zWR9FLumYn+naW/rL/OPQTwNC2r2RNGuKhbZLU9QdVwUW8nhtMVslfqH158PtIn5IkmJxfCH6hdbH+rfeqVc3a8/T8qmLYSrjOeu6O275ep9bRgp49L7mibSKi939P3y7snDs8Vw11S+W9Zwmsn6KE6ayjrD70L/Mcin4TnoYvjjM9WdA7VTDwh6yysTvaV73WwNztRWcgK+3Nn6KP5O7VPF9EDzlUqlFRnUAXor/lIpoLZ03JVK6tbH9j9N3LUQrlLtP1RVbsdL71ZS73bsPRAv4aq83FGJ68+iQb4n4njy4Lis4SzjV62bSu6X27nsMcincUFf+4vfJQV//5t/GPqHLjlEEz3e6DrMaVCjTuCxPSZ2Syf8ihLRL3f0FMJU5EoldbvashaqVLnt1V28W1m92QPxEq5Kc5eMjtls+NSMrOUNe5m06rQpv715dPsx1DtkSDS9ip/oc9GPPndnpbyg5iQ31yboY5QuYebm7Kd/nNuTmj6ZpRVpzBGyQk8ennmlskWSjmctVKlyN7eRv1ve4it9IGkiqzL5Gzv174m+r7r5soa9TFq1v85Ld56aU3rhMYhnA4Im3WSkuX2Z6Ss9H9RjS/TDf/y3r3dqC+oqytq6s6CFKqsJmj2QioLq//TwWNZwlsmq9gTNdlLQesyT2f6pmccvuw7637+Mdu3RzM1B/XNpTlB7Brv0HYjTirISqaBeqaKg+VN8sMo4zp/ilwiaPRAv4aq0p2tzgs4Sp1sf7wzi0oazTFa1J2i20z/F56oSzd0FXQzNFZMvh2YdahapmaDz6CdqDPlMG6LWG989j5JJWXGRlBNUrQbe0usEsxr4KFYLgwfHaUVJm76gWam0bltbbpEUqNIseRY7JXcrqzd7IF7CVamGu5+4RZKX+HPtYlnDWcav2hPU7cwtktwDFs8GnotPrn6Yv+/T5ZeZ0g0j6JLLTDlB7SnMXBOau6rTikyBvKBZqaxuW1t2mSlYZbJ/N156t/x60weSJVyVlzuvDZOTdy5hTCppOMtkVXuC5jvOzka9ByyeTbxY5Ks/VZ31g4/05uXzaPC/ty7U/9hdlP9IT8ZcGeVZdkU8J6ieo73+7+ZHXeQ1PUKnFWkKgmalsrqv07i9UB+q0l4GN1fPl9ytrF7vgeQTukp1l/RzB5/n7kl6/Wx5w14mrdpfJBXa+6ud3GMQD1/NtEnSK2XNZczFkh5BQTdJo4Iuhn+kzkiTqD8LJA0F3SSNClqYM/cECrpJmj3FF+bM/YCCkk5DQUmnoaCk01BQ0mkoKOk0FJR0mvsQ9FsmO5gEgYL2NQkCBe1rEgQK2tckCBS0r0kQKGhfkyBQ0L4mQaCgfU2CQEH7mgSBgvY1CQIF7WsSBAra1yQIFLSvSRAoaF+TIFDQviZBWCnoxbsncXy1N3r6Kr2Z6v9vXu6v0wbWgetLEoRVgp6P3jgxMs6euZuL915Nx/H5s7XawDpwfUmCsELQ6ZNfqxH06sWJHkmTG6XmbHzzydFabWAduL4kQQie4tWYGV+9f5TdTMczfwD91vF/NWCy6aSiYYMaJijo+VNjZnKj56DfvPhibzS+VbhOJzLZdBKeNUdQvXc2no2TTZ82up/JUBKeoKD5Oajaqbam+0umoW10P5OhJDxBQW9eju0q3tzEegCNOYLCJOFZ9zqoPeVzDoqShGdzzyS10f1MhpLwUFDZSXgoqOwkPBRUdhIeCio7CQ8FlZ2Eh4LKTsJDQWUn4aGgspPwUFDZSXgoqOwkPBRUdhIeCio7CQ8FlZ2Eh4LKTsJDQWUn4aGgspPwUFDZSXgoqOwkPBRUdhIeCio7CQ8FlZ2Eh4LKTsJDQWUn4aGgspPwUFDZSXgoqOwkPBRUdhIeCio7CQ8FlZ2Eh4LKTsJDQWUn4aGgspPwUFDZSXgoqOwkPBRUdhIeCio7CQ8FlZ2Eh4LKTsJDQWUn4bmzoPy2404nZX/b8VrU6UQmm07CQ0FlJ+GhoLKT8FBQ2Ul4KKjsJDwUVHYSHgoqOwkPBZWdhIeCyk7CQ0FlJ+GhoLKT8FBQ2Ul4KKjsJDwUVHYSHgoqOwkPBZWdhIeCyk7CQ0FlJ+GhoLKT8FBQ2Ul4KKjsJDwUVHYSHgoqOwkPBZWdhIeCyk7CQ0FlJ+GhoLKT8FBQ2Ul4KKjsJDwUVHYSHgoqOwkPBZWdhIeCyk7CQ0FlJ+GhoLKT8FBQ2Ul4KKjsJDwUVHYSHgoqOwkPBZWdhIeCyk7CQ0FlJ+EJCjobafbN7Rsn8XT09FV883L/dsE2up/JUBKeSiPouZJyapy8eO/VdByfP1tSqI3uZzKUhKeKoFfvH8U3nxzpTaXmbJxsF2ij+5kMJeGpIuhMDZhXe+ZEb0bQmT+A8tuOO53sw7cd6wE0vnjHjqJqDvrNiy/2RuNbxep0IpNNJ+GpIKiegVrsPHQ2no2NtHna6H4mQ0l4Kgg6TUdLI+jVi5Pp/pJpaBvdz2QoCU9YUOuiHkZvPj2J9QAacwSFScITFjRxcTYaPdEbapmkV0ycg2Ik4eEzSbKT8FBQ2Ul4KKjsJDwUVHYSHgoqOwkPBZWdhIeCyk7CQ0FlJ+GhoLKT8FBQ2Ul4KKjsJDwUVHYSHgoqOwkPBZWdhIeCyk7CQ0FlJ+GhoLKT8FBQ2Ul4KKjsJDwUVHYSHgoqOwkPBZWdhIeCyk7CQ0FlJ+GhoLKT8FBQ2Ul4KKjsJDwUVHYSHgoqOwkPBZWdhIeCyk7CQ0FlJ+GhoLKT8FBQ2Ul4KKjsJDwUVHYSHgoqOwkPBZWdhIeCyk7CkxP0NDJs16qpje5nMpSEJxP0cseZeRptHVaugN923OmknG87vvzpcbY390NF6nQik00n4eEcVHYSHgoqOwlPQVA1EV1nAurTRvczGUrCUxB0shvHi8frT0BjtAPXlyQ8+UXS9QEFlZWEx7/M9PCMp3hpSXj8U/xiOLhDTW10P5OhJDz5Oei85rNImja6n8lQEp7iZabTaLdmTW10P5OhJDyZoIthFD1Qy6MJ56CCkvBkq/g3lZdzPQm9/gVX8WKS8CwRtCZtdD+ToSQ8t0/xdWmj+5kMJeHhc/Gyk6vQL/9duuD47vOKx1wVXDxac8kyX28UpKCyk+VcHzw8W37VprJza8upqSsoXw8qMlnORPupDLU3Pt0UVD/LmfwxrfWK+pQ2up/JULKUy51s6Lw+iKKB9u1DtQ7Z1YuR7cXjX6kVid7Uz90kBcyt8mvx6IMoenhmCypJ83lTpd3eXtgdLq8c2/pAVeDq0Y381qWSnQVyp/gJ35MkLVmKN/pdHwzMv8VQjaanSkv1K/O0t5FY7dC/1Nv6Vg+5i6HdZwo+OizmTfVmO7I7XIHLnW31z/5s6xnEacrtLNxPzkFlJ0vxXrNmTrpzPV7uGnGtoGr7D9qWZEdaUJmaK/josJg31ZvtZIcrYG5Pk9u0Hr+QP65bKKjsZCneCDrXw5bzMPPO/Mos9N200b3r1/xSC5YIWsin1bv/XAEzPqq/jFw97r+StxRTUNnJUtxYdfnmLcFSQS93trIhMs5OwHcW1K8nFfT2ak1DQWUny0mE0GdcvSae27lnTlAjlvpteopPFs/2rPz42AlayJsiOUGTAump3tVzq9BtKKjsZDnZddB0kZOoogdXK6geQIdb6SrIRLSww2zh5C+SygTNFkmDZJGU1JMvZHcW7iYFlZ1cxcQ9k5ReJkp8mUQD65kqsfWxWb5nl5nMWf8D+3NSsJiPC4Iuvcy0dbik0O1RNCeouexV9xn5NrqfyVCyEWpdoK+JL6i5ElWbNrqfyVCyEdoS9PZFqHVoo/uZDCUbob0RlIJKS8KTm4Ou+Tx+nja6n8lQEp78KT7iIklYEh5eZpKdhIeCyk7Ckxf0tP6r7cAOXF+S8OQ/o96+4omvB5WTXPN41TryjbLkOmjNtXwb3c9kKLnm8apz4JuFgspOrnm86hz4ZuEpXnZyzeNV68g3ChdJspNrHq96h75JeJlJdnLN47UxGzYGBZWdXPN4bcyGjZF9cMPOLp/qlJdc83i5X5o3ddT9toKNEh5BZ6PR6I2T+Gpv9PRVHE/1/zcv92+Xa6P7mQwly1kZ0m/q6J6gyy8zTY2M2snZs/jivVfTcXz+bElNbXQ/k6FkOStDi8f/OrCCqtOq/gyQP/5lVPuzt+9EUNCbT470zdWLk/ji3ROl5myc7CrQRvczGUqWszKk1JzsGkEn2/rNnYvhtn2P572TCZq8cT6yb29KUaf20WhfD53x1ftHZgSd+QMov+2408nybzteGnK/VGpe/tmZ/v+nx/qt81rVdk74wbd8XLxzpEfR86dGUD0H/ebFF3uj8a2CdTqRyaaT5awMaRlPt/Vb39XG9d91RNBypvvJCKp/mI1n42TTp43uZzKULGdlyHr5YZdG0JWXmab7yRw0NrPR6f6SaWgb3c9kKFnOypCR0Szlkzlo+4KWoc/tN5+e3Lwcx3buOVMbHEFRkuWsDFkZ9WszklV8JwRdfplpNho9OYrddVC7WuIcFCVZTq3Q/cOX28lOrnm86hz4ZgleZqpMG93PZCi55vGqdeQbhZ8sIju55vG6w/FvCH6yiOzkmsfrDse/ITiCyk7Ck3/Lx12ebW2j+5kMJeHhR9/ITpbzvWXUOfDNwlfUy06WQ0HvofuZDCXLQRSUHwEuLlkOoKDXB9vXB7t11/JtdD+ToWQ5gIJqNSe1XzndRvczGUqWAyro6YDPxUtKlgMoaDwxdta8GtpG9zMZSpYTEFS/NCOb67X3/s6coGoSGk9qfVl8jHbg+pIsZ7WgepSq+yldG4WXmWQny1kpqH6nh/06TvtK5Y6MoHeije5nMpQsZ6WgdqF8fbDbMUHNa0JrvmKkje5nMpQsZ7Wg9jXBk44Jys8HFZcsp4KgXRtB+ZYPeclyAOegFFRespzAKt68oXNbvydeb3dDUPt18jzFS0qWs1rQeJ6sRtSy5E9+2hFB3etB671epI3uZzKULCcgaFfgZSbZyXIo6D10P5OhZDmQgqoJx27dNya10f1MhpLlIAo6efj1zu71AT+4QU6yHEBBzQfc7fIyk6QkPBRUdhKewvviv9aO8jqonCQ8+UXSnF+FKCwJDy8zyU7Cs0zQ/+IcVEwSHk/Qif1k0MsdLpLkJOHxPsD2wbF+T9K87iuW2+h+JkNJeFJBtZzx/OFnUd1PuGuj+5kMJeHxv4bGfPZN7TfytdH9TIaS8BQFrf9G0za6n8lQEp6CoI/qvSde00b3MxlKwnNnQfllsp1Oln+ZLAgcQWUn4fEEvcv7PWK0A9eXJDx8qlN2Eh4KKjsJDwWVnYSHgspOwkNBZSfhoaCyk/BQUNlJeCio7CQ8FFR2Eh4KKjsJDwWVnYSHgspOwkNBZSfhoaCyk/BQUNlJeCio7CQ8FFR2Eh4KKjsJDwWVnYSHgspOwkNBZSfhoaCyk/BQUNlJeCio7CQ8FFR2Eh4KKjsJDwWVnYSHgspOwkNBZSfhoaCyk/BQUNlJeCio7CQ8FFR2Eh4KKjsJDwWVnYSHgspOwkNBZSfhoaCyk/BQUNlJeCio7CQ8YUEv3h6N9uN4NhqN3jiJp6Onr+Kbl/u3y7XR/UyGkvAEBb16/yi+eOconhonL957NR3H58+WFGyj+5kMJeEJCmpknO7ffHKU/DQbJ9sF2uh+JkNJeCrNQdUoerU30md6M4LO/AGU33bc6aScbztewc3LsTnL65FTzUG/efHF3mh8q1SdTmSy6SQ8FQS92nM22nnobDwb65lpgTa6n8lQEp4qq/h0yW4EvXpxkk5JfdrofiZDSXiCgiZ+nuurS5+exHoAjTmCwiThCQqqr3/q5ZG6faKlVMskddLnHBQkCQ+fSZKdhIeCyk7CQ0FlJ+GhoLKT8FBQ2Ul4KKjsJDwUVHYSHgoqOwkPBZWdhIeCyk7CQ0FlJ+GhoLKT8FBQ2Ul4KKjsJDwUVHYSHgoqOwkPBZWdhIeCyk7CQ0FlJ+GhoLKT8FBQ2Ul4KKjsJDwUVHYSHgoqOwkPBZWdhIeCyk7CQ0FlJ+GhoLKT8FBQ2Ul4KKjsJDwUVHYSHgoqOwkPBZWdhIeCyk7CQ0FlJ+GhoLKT8FBQ2Ul4KKjsJDwUVHYSHgoqOwnPnQXltx13OtmLbzuuRp1OZLLpJDwUVHYSHgoqOwkPBZWdhIeCyk7CQ0FlJ+GhoLKT8FBQ2Ul4KKjsJDwUVHYSHgoqOwkPBZWdhIeCyk7C0wVBv1eDu7bZlyQ8fRW0L38U8FBQCtppKCgF7TTYgraRrP8420jCQ0HvL1m/h+on4aGgCEkKugEoaHNJCroBKGhzSQq6AShoc0kKugEoaHNJCroBKGhzSQq6AShoc0kKugEoaHNJCroBKGhzSQq6Ado4cEyGkvBQUNlJeCio7CQ8FFR2Eh4KKjsJDwWVnYSHgspOwkNBZSfhoaCyk/BQUNlJeCio7CQ8FFR2Eh4KKjsJDwWVnYSnsqBXe6Onr+J4qv+/ebl/u0Ab3c9kKAlPVUG1k7Nn8cV7r6bj+PzZkhJtdD+ToSQ8VQW9enESX7x7otScjW8+OVpSoo3uZzKUhKeqoGrojK/ePzIj6MwfQL8lHacJbe6PqoKePzWC6jnoNy++2BuN12ijfhcx2VwShDVHUL05G8/GyWY1sA5cX5IgrDkHtVvT/eXT0BKwDlxfkiBUX8WPYzv3nKkNjqD4SRDWvQ5qz/Wcg+InQdjcM0nlYB24viRBoKB9TYJAQfuaBIGC9jUJAgXtaxIECtrXJAgUtK9JEChoX5MgUNC+JkGgoH1NgkBB+5oEgYL2NQnCfQhKSG0oKOk0FJR0GgpKOg0FJZ2GgpJOQ0FJp6GgpNNQUNJpNi7ouXnzp3kL/Ww0Gr2h30ofX7w9Gu27d4bq94WWJXMFvaStqkIya/PcboTbzBX0kuE2cwXtbvPBf+E2cwW9ZLjNXEG9M9la3SYumxdUv3n+3HTe1H1Io34X/cU7R8kn5Ol31pckCwXTpKsqmMza1H8iqo5wm4WCaTLcZqGgLa3+SsJtFgqmyXCbhYKx2wq0iUsjgk6f/Fodu+zTR0zHTvfdp5Po2+XJQsE06aoKJvOfeKLqCLdZKJgmw20WCpof/+Zv9+MqbeYKpskqbeYKxm4r0CYuzYygtq/2Ruasa7EfjWc/32m65PNv00PuF3Q70qpCyXyb9gNNK7TpF3Q7qrXpF9S2/LMaySq0WSjodlRos1DQbQXaxKVBQfUZN/1L1x+d4z4hr+Q8ZJO5gm5HWlUo6bd58faTo0pt5gu6HVXazBfURfWptkKbhYJuR4U2CwXdVqBNXBoU1JD8QV/tjb1PyFtxyPMF3Y60qlDSbzM/GK9Se+moXaXNfEF9v2/8gbE0WSzodoTbLBZ0W4E2cbkfQS/e1jfplKv8kBcKuh1pVaGk16bdqtBmoWCujqCgfkGzoB6NxuE2iwXdjnCbxYIVHycuDQqqzzo3n+ruT+RJPyGvdIZVLOh2pFWFklmbyTkv3GaxoNsRbrNY0N71/QqPs1jQ7Qi3WSzotgJt4tLkCKr+2vUU7d0T+2e/7y77la9R8wW9pK2qQjJtM42E2swX9JLBNvMF7VDoX95cuf73L5hmyXCbuYKVHycuDQnq8x/FLlt5lY/JJpK4NPRMksfNPxVKrH6ehMkmkrjwuXjSaSgo6TQUlHQaCko6TS8EPY0Uu3XT8wfHi0eHamMSbW/wTpFK9EDQ64MHx0qz2nYpQeN/OdS3vzWekvukB4JqwRSnD89q569/oar4vXL9fzZ5x0gF5At6fZAOnYvHv4qUbQdRNFA/6OFQ/bd49EEUaXn1fu3yYphNCC53oq0P1Cn+58nubbvrw8fHaXHSKPIFvdxJZ5+L4UB7ODD/UkGH2lm7Tw+zdv9w12a31T+joanm9MGx2+WKt/a4eoJ8QRPhomjr0Ghnzvhu4WME3TW3Zr/ScPE4GxbNvlMj6B/O4qyY2uWKt/a4eoJ8QZ1E5myu1zp61HM/uFtVyCz19Ul8YmYABjNCOmPnkZbc7UqLk0aRL6ibgwYFzU7XaprpLaysoJc7W4e6eCooz+73gnxBk1N0JujW4ZJT/ONjs9+RDLtuOhAnXqsybleuOGmMHggaT+x10GT94xZEerVzfbDlLZKUgs5Ae2VelRm4RZIWcjHcOswWSbZ4y49NPH0Q1Mweo12nXXKZySyc/vpNe5lpkOw3o2tkbzXJZSa9qaamWx+rgdXtcsVJo/RC0JUsajw9NOcE9L6goGsKqs/q5hoouRco6LojqL6+RD/vDQpKOg0FJZ2GgpJOQ0FJp6GgpNNQUNJpKCjpNP8PIFr1zaYBO30AAAAASUVORK5CYII=" /><!-- --></p>
+</div>
+<div id="niveau-déducation-et-ladoption-des-méthodes-modernes-de-contraception." class="section level1">
+<h1>4.Niveau d’éducation et l’adoption des méthodes modernes de
+contraception.</h1>
+<p>Plus le niveau d’éducation est élevé, plus les femmes adoptent les
+méthodes modernes de contraception.<br></p>
+<p>Cependant, même dans les catégories les plus instruites, la majorité
+reste non utilisatrice, ce qui souligne une faible prévalence générale
+et peut indiquer la présence d’autres obstacles (culturels, économiques,
+disponibilité des services).</p>
+<p><img role="img" src="data:image/png;base64,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" /><!-- --></p>
+</div>
+<div id="impact-du-statut-matrimonial-sur-lutilisation-de-la-contraception-moderne." class="section level1">
+<h1>5. Impact du statut matrimonial sur l’utilisation de la
+contraception moderne.</h1>
+<p>L’utilisation de la contraception moderne reste globalement faible
+dans tous les statuts matrimoniaux.</p>
+<p>Cependant, elle est plus fréquente chez les femmes en union, ce qui
+traduit une demande contraceptive liée à la vie conjugale et à la
+gestion des naissances.</p>
+<p>Les femmes jamais en union ou anciennement en union affichent des
+taux nettement plus faibles, ce qui correspond aux attentes liées à leur
+situation reproductive. <img role="img" src="data:image/png;base64,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" /><!-- --></p>
+</div>
+<div id="utilisation-des-méthodes-modernes-selon-le-lieu-de-résidence-urbainrural." class="section level1">
+<h1>6. Utilisation des méthodes modernes selon le lieu de résidence
+(urbain/rural).</h1>
+<p>Les femmes vivant en zone urbaine ont significativement plus recours
+à la contraception moderne que celles vivant en zone rurale.</p>
+<p>Toutefois, la couverture reste faible dans les deux milieux,
+indiquant un besoin de renforcement des programmes d’accès et de
+sensibilisation en particulier dans les zones rurales. <img role="img" src="data:image/png;base64,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" /><!-- --></p>
+</div>
+<div id="association-entre-le-quintile-de-richesse-et-lusage-des-contraceptifs-moderne." class="section level1">
+<h1>7. Association entre le quintile de richesse et l’usage des
+contraceptifs moderne.</h1>
+<p>L’adoption de la contraception moderne augmente avec le niveau de
+richesse.</p>
+<p>Les femmes issues des ménages les plus riches sont environ 4 à 5 fois
+plus susceptibles d’utiliser une méthode moderne que celles issues des
+ménages les plus pauvres.</p>
+<p>Cela suggère que la capacité financière et l’accès aux services
+constituent des déterminants majeurs de l’utilisation.<br> <img role="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqAAAAHgCAMAAABNUi8GAAABPlBMVEUAAAAAADoAAGYAOjoAOmYAOpAAZrY6AAA6ADo6AGY6OgA6OmY6ZmY6ZpA6ZrY6kLY6kNtGgrRNTU1NTW5NTY5Nbo5NbqtNjshmAABmADpmAGZmOgBmOmZmZmZmkJBmkNtmtrZmtttmtv9uTU1uTW5uTY5ubo5ubqtuq+SOTU2OTW6OTY6Obk2Ojk2Ojm6OyP+QOgCQOmaQZgCQZjqQZmaQkDqQkGaQkLaQkNuQtpCQttuQ27aQ2/+rbk2rbm6rbo6rq26rq46ryKur5P+2ZgC2kDq2tpC2ttu225C229u22/+2/7a2/9u2///Ijk3I5KvI/8jI///bkDrbkGbbtmbbtpDb27bb29vb/7bb/9vb///kq27k5Kvk/8jk///r6+v/tmb/yI7/25D/27b/5Kv//7b//8j//9v//+T///8OqkttAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAYZElEQVR4nO2dC3/cxmHEj7RExm6SUieVYqK2qWirOoppyb7SxjXltGQeVquLyCitrasYkuYL3/8LdHfxWuDA44G3eMxw5mcLOBwWs4P932Kx9+AgkqQea9B1BSRplgSo1GsJUKnXEqBSryVApV5LgEq9lgCVei0BKvVaiwN6NHB68KW/8WSwVr331e7DD/U9rnZXFj7Q2V++relqS9ytvk4Vla5Zfob1nPUq7ZYmurH0jXUulFjgpNRWMEAHg81829XuDXx2COjRcl1AbQkuQNNE9wvQuOHfD+5yxuZUd4AuoD4AWlKaqD6gAczvpmCARgfLb028o8Hym+j7Z4PBn71Jn7rYMKHffzYYLP0szZbuYB795jO33eyxOnjwlV1Jn0xkt3/jzlvhifhA6WG9fbNjPPANrnZNH7+WVjAvNuV6sbF24ralJdL6PijV1+hsde39qnlkCvzog+daVenY+hvvAMWcV/9kqvQ8KpSYYV08j178/zau8ZNXydrUOUh70HlPdFLxD9nZMsW/fVZOkQWYTrKIAgP6yarpSM9W7RV/6SvTgPayf2Iu/kfpKMCdmmwHd8ri0cFJsil/Mjm8G+A+Wyk/4Q50VBxcZMc4mTJIG8dV8GiG68XGD1fdmgfo9OFiv7NVu+/SL+3TK55rVaVj6+/yA5TjTG2faV08j6VTVQa0dA4SQOc+0XHFbWWyujx4Nl3brIWrE95RAS/x9nTYe6OrXfv6+eNqeqIcuabbMhVOz1i+w2DFYmbXTJD3pnj+pNPFxtKX0fe78R7+E/GB0sMmm7JjDJ7bM+4aJzFIxl9xBfPaTLlebJgSV7/OS7iDTB/OyrTAc1PclD9b9XerqnRq7QX245yt/vhDWiXv7N1oXTyPU6eqBGjxHMSAzn+i44q7Etn5NQZ/KOybBahIsojC3SS5V5GF1Vz43HazfuS6JFfD//3NP68m5y7fIS5g90i2FUrnD+PghSeScVByWL9ohuyB7QZTg6RxktJJsQrXiw133ANb+6Q5Kw+X+bgCxd2qKh0XnQqc5/zkr78p1mSmdfE8lk5VGdDSOYgBnf9ExxXPSlSn8AJMJZkN0GwFAzQfNZ3kxNo6nuS9fQJovkN+JuPRQFQoHT+02+0epSe8q1QO6GZh5cQ38O/Js2IVrgkC9qWVA1pxuNhnLWXmwN+tqtJp0fQApTjRgX3wozelEjdaF89j6VRNjUHL52Bm6aoT7Z+HG1KkASqSLIJXuDFoVAGo3WD7InPd/OG//vbbjcCA5od1mhfQvFiPAI3+aId1y29hAU0DVCRZBK8GAM1y2CeX/n1jJd2UXn3yHXxAs4utN5+aXicufJjyovlhvX2j4iW+AtC8WIVrfIl3F7GqS/xMQIuX+GKly4CW4jj9zz8ONoslbrQunsfSqXIDFLc2A9A6J3rqEn9DChugIskiagBQMzj+MjLj7Xg8+lfxFd4M079/NsiG58kO/kvdjgg2/CfdIc3Y/bm7tYhKTyTNlxw22ZQdI7+1yBsnvTEu1GbK1XSvf57eJCUlKg9nVQS0cJM0VekyoKU4J8Y1uvq1BdEvcaN18Tym8RNXc5X9WepfeQ4qSs880d5NUny2plNkASqSLIJXA4Cm/f6a2zKIh9jxpiRbtoN37uJtm4XSUXowN/tRfMKfQEmnjfNjFKZqksbJZjW9YtOuFxufrCaXqqOKaaYZgHrTTBWVLgM6FadYpbTETdbF8+jFX/psxfMvA+pPM9U40QW/zcoUWYCKJIuoCUCjMzMI+eR5/Gx8B+Omm788SDuSdAf/rL9fTaZ3vdJWZkTjZp9LT7ii2WGTjYVjPHhTMLh4Nlj5Lq6gV2zK1fBm593t9HJeouJwrkwR0Gy3qkpPAVrK6aa3f/xhqsQN1sXzmMg8TKba/2AifDc9Bk0TVZaedaKTf5OzVZkiCzCdZBHp00wlZRM5oFr0Dda+SYCWJED7JQFakgDtlwRoSQK0XxKgUq8lQKVeS4BKvZYAlXotASr1WgJU6rX6Aeif7oenYtaXAOW2hI8pQLkt4WMKUG5L+JgClNsSPqYA5baEjylAuS3hYwpQbkv4mAKU2xI+pgDltoSPKUC5LeFjClBuS/iYApTbEj6mAOW2hI8pQLkt4WPOBPT8xWEUXW4N14+zxdj+e723E7IOajkuz9YAPR0+OXQwTp6mi/OXx+NRdPo0ZBUitRyXZ1uAjh//p+lBL7cPbU+aLAyak9H16/2QVYjUclye7V7iTZ8ZXb7azxfj0cTvQP8kSQ1obkBP1x2ZycKOQT9uv9sajhZ8YRSlroXJs8se1G6djCajZDWU1HJMnu0CWhyDmo1mbbwTeBiqlmPybBfQ671RfBfvFpHtQCP1oDCW8DHrzoPGl3yNQVEs4WPqnSRuS/iYApTbEj6mAOW2hI8pQLkt4WMKUG5L+JgClNsSPqYA5baEjylAuS3hYwpQbkv4mAKU2xI+pgDltoSPKUC5LeFjClBuS/iYApTbEj6mAOW2hI8pQLkt4WMKUG5L+JgClNsSPqYA5baEjylAuS3hYwpQbkv4mAKU2xI+pgDltoSPKUC5LeFjClBuS/iYApTbEj6mAOW2hI8pQLkt4WMKUG5L+JgClNsSPqYA5baEjylAuS3hYwpQbkv4mAKU2xI+pgDltoSPKUC5LeFjClBuS/iYApTbEj6mAOW2hI8pQLkt4WMuDGjXfxVX4lQwQINIXQuTZ7960CBSyzF5ClBUT8WsLwHKbQkfU4ByW8LHFKDclvAxBSi3JXxMAcptCR9TgHJbwscUoNyW8DEFKLclfEwBym0JH1OAclvCxxSg3JbwMQUotyV8TAHKbQkfU4ByW8LHFKDclvAxBSi3JXxMAcptCR9TgHJbwscUoNyW8DEFKLclfEwBym0JH1OAclvCxxSg3JbwMQUotyV8TAHKbQkfU4ByW8LHFKDclvAxBSi3JXxMAcptCR9TgHJbwscUoNyW8DEFKLclfEwBym0JH1OAclvCxxSg3JbwMQUotyV8TAHKbQkfU4ByW8LHFKDclvAxbwV0MrTaccsnh9F4uH4cXe/thKyDWo7Ls/0e9NRAOXZMnr88Ho+i06chqxCp5bg8Wwf08tV+dP16364aNCejZD2g1HJMnq0DOjEd5uWWu9C7HnTid6Bd/1VciVM1ALUdaHT+RdyLmjHox+13W8NR/dfCDKlrYfJsuwe1I9BY8Th0MpqMHLThpJZj8mwb0HHWWzpAL7cPxzuBh6FqOSbPlgGNWbTd6PXXh5HtQCP1oDCW8DFvBzRhcTIcPrYr5jbJ3jFpDIphCR9T7yRxW8LHFKDclvAxBSi3JXxMAcptCR9TgHJbwscUoNyW8DEFKLclfEwBym0JH1OAclvCxxSg3JbwMQUotyV8TAHKbQkfU4ByW8LHFKDclvAxBSi3JXxMAcptCR9TgHJbwscUoNyW8DEFKLclfEwBym0JH1OAclvCxxSg3JbwMQUotyV8TAHKbQkfU4ByW8LHFKDclvAxBSi3JXxMAcptCR9TgHJbwscUoNyW8DEFKLclfEwBym0JH1OAclvCxxSg3JbwMQUotyV8TAHKbQkfU4ByW8LHLAB6NHBaC2kwl9RyTJ4NAXqxkZJ5NFj6KqTH7VLLMXk2A+jFT9/mWwsPWpBajsmzX2PQrv8qrsSpYIAGkboWJs8me1AzEG19ABqp5bg8mwT0YDOKzj5tdwAaqeW4PBu8SbraFaBclvAx/Wmmhx90iWezhI/pX+LPVldCHrqG1HJMng2OQU86eBfJSi3H5NnoPOjRYDPk4eeUWo7JsyFAz1YHg2Vze3SgMSiRJXzM/C7+J4bLEzsIvfoH3cXTWMLHrAC0A6nlmDwbvsR3IbUck2e/PiwSRGo5Jk8BiuqpmPWlz4NyW8LHLHyiPpkC1SfqeSzhYxYu8Qf6ThKbJXxMjUG5LeFjClBuS/iYApTbEj6mAOW2hI8pQLkt4WMKUG5L+JhFQI8Gg82jhx9CGswltRyTZ4PzoA+/3di82m3/I01qOSbPxgC92Ng0/0Un7X+mSS3H5ClAUT0Vs76KP79oL/EXG3qrk8cSPmb5W52dvBWvlqPy1DQTqqdi1pcA5baEj1kA9Gp3LepilkktR+XZ4Dyo+9ax5kGJLOFjlqaZ7ELTTESW8DEFKLclfMziPKhFU/OgTJbwMTUPym0JH1PTTNyW8DEFKLclfMwCoPbnmQZd/EKTWo7JszFAO5mjd1LLMXk2Pc3UgdRyTJ4N9qBVgE6Gw+GTw+hya7h+HEVj++/13k7IOqjluDybG4NWTtGPHYyWycnT6Pzl8XgUnT4NWYVILcfl2eAlfjB9k3T9et8uLrcPo/MXhwbNySjZFFBqOSbPdqeZzKV9ONyxXWd0+Wrf9aATvwPt+q/iSpyaG9DzL/ZtL3q67gC1Y9CP2++2hqM7viCqpa6FybOD78WPd5Ie1D6YjCajZDWU1HJMnh18L368k4xBIzcaHe8EHoaq5Zg82/3asb22X399eL03iuKx58SsqAdFsYSPefv34ifD4eP9KJ0Hje+WNAZFsYSPqe/Fc1vCx9TnQbkt4WPq43bclvAxBSi3JXzM/A95Je9z6vOgVJbwMdWDclvCxxSg3JbwMfWVD25L+JjFDyyvXe1udvG5erUck2ejX/k4WItO2v8rCmo5Js9GAT1a0U/fMFnCxyz/up2hs4O/Q6OWY/JsDlD7+6AHrf+x+Egtx+WpaSZUT8WsLwHKbQkfs3iT1MEHmZzUckyeDX4edDAYdPLjImo5Js9GL/EHA90kMVnCx6wYgx5oHpTHEj5mRQ/aPp9qOSrPBifqO7m+R2o5Ls9G3+rsRmo5Jk/Ng6J6KmZ9zffTN01LLcfk2dB3kv5txk/fNC21HJNnU1+aW6v+ZZE2pJZj8mzoEn/x0/8SoHSW8DH10zfclvAx9dM33JbwMTXNxG0JH/P2P0PThtRyTJ56JwnVUzHrq3ST1P4cvZNajsmzwR5UPx7GZgkfUzdJ3JbwMQUotyV8TA/Qbj6r7KSWY/JsCNADc4d01BGhajkmz2YAdZOgXc2EquWYPJv6NNNm/Ns3dWsjSQ0oGKBBpK6FybNfPWgQqeWYPAUoqqdi1pf+DA23JXxMTdRzW8LHFKDclvAxBSi3JXxMAcptCR9TgHJbwscUoNyW8DEFKLclfEwBym0JH1OAclvCxxSg3JbwMQUotyV8TAHKbQkfU4ByW8LHFKDclvAxBSi3JXxMAcptCR9TgHJbwscUoNyW8DEFKLclfEwBym0JH1OAclvCxxSg3JbwMQUotyV8TAHKbQkfU4ByW8LHFKDclvAxBSi3JXxMAcptCR9TgHJbwscUoNyW8DEFKLclfEwBym0JH1OAclvCxxSg3JbwMQUotyV8TAHKbQkfU4ByW8LHFKDclvAxbwf0/PPhcCeKJsPh8MlhNB6uH0fXezsh66CW4/JsF9DLV/vR+Rf70dgxef7yeDyKTp+GrEKkluPybBdQB+N45/r1fvJoMkrWA0otx+TZ/hjU9KKXW0N7pXc96MTvQLv+q7gSp+oAer03cld523OaMejH7Xdbw1HdV8JMqWth8my7B73cSmmMx6GT0WRkR6YBpZZj8mz9Lj67ZXeAXm4fZkPSUFLLMXm2C2jC56mdXfr6MLIdaKQeFMYSPuatgNr5T3t7ZJaPLZTmNslc9DUGBbGEj6l3krgt4WMKUG5L+JgClNsSPqYA5baEjylAuS3hYwpQbkv4mAKU2xI+pgDltoSPKUC5LeFjClBuS/iYApTbEj6mAOW2hI8pQLkt4WMKUG5L+JgClNsSPqYA5baEjylAuS3hYwpQbkv4mAKU2xI+pgDltoSPKUC5LeFjClBuS/iYApTbEj6mAOW2hI8pQLkt4WMKUG5L+JgClNsSPqYA5baEjylAuS3hYwpQbssOPB89ehTwaAKU27J1z0exgh1PgHJbCtAgug8t141l256PHgUmVIByWwrQILoHLdeRZYuejwoKdVQBym3ZiqePpMagwJ58MadpFKDAnkwxb+ZQ86Cwnhwxb+0i9U4Sqid6zDmv3v0CtOu/iiu1oRjNNh2DARpE6F1Lfy0X9rzDPU+/etAgQmw5DMsFPO98Oy5AUT1RYi44UyRAUT37HzPIJKYARfXsc8yA8+sCFNWznzEDv/UjQHE9+xYzOJq3W9aWAOW2vPntyCbQjCVAUT1bt6z45EajaMYSoKie3QLaApqxBCiqZ0ffDwr9CbjbJEBRPTsDtF1bAYrq2dXXLwToohKggVQishM+BSisZ4OW1SgK0EASoHfWLQy2j6cAxfUMajln74geU4CiWda88UGNmUqAwljebUAJF7MkAdp/y4VudXBiVkuA9tgyxE04QMyZEqA9tAw5v97jmHNJgPbJsoF5yz7GrCMB2p5mT1c2NKMuQEPoPgDa0Xs9AjSE+vNR80YNp98lb74OAjSE+vBR83YcW/98kQANISJAH92mBjxnSYCGUO8+yXsrZrX5E6B30z0DdFHMFrdu4MgzJUADqIF2mw1eF92ZAL2TegDoQi13xy6wE1o6wFOABlAtpAJdi7vpzu7DdG9oy+4BvfHyG4TEWbahD3mrBGh99QjQlns19JbrrycroC37ordcfz3JANXtLZunAA0i9JbrrycboJp/IfPkA1QtR+UpQFE9FbO+BCi3JXzMuQG93BquH0fR2P57vbcTsg5qOS7PTgC1TE6eRucvj8ej6PRpyCpEajkuz04Avdw+jM5fHBo0J6Pr1/shqxCp5bg8OwHUdJ3R5at914NO/A60zb+AK90f1QX0dN0BasegH7ffbQ1Hc78E5pG6FibPLntQuzoZTUbJaiip5Zg8uxyDxmvjncDDULUck2dHd/GjKB57TsyKelAUS/iYdedB42u9xqAolvAx9U4StyV8TAHKbQkfU4ByW8LHFKDclvAxBSi3JXxMAcptCR9TgHJbwscUoNyW8DEFKLclfEwBym0JH1OAclvCxxSg3JbwMfsBqCTdIAEq9VoCVOq1BKjUawlQqdcSoFKvJUClXkuASr2WAJV6rb4CGn8Hn0RJmORHAc2i4XTZ4Vs6i7P9FquEAG1PrQGaqe2zyADo5favho/33ffsnxymi/O//fmTw2TL6XCYrbdn61ZDGkbXr/9jOByZNCPXRMbmL36+kyySDYEdnWyQ38eHf7x//uLvhsOdQtwW/YI0ZfuAbq0fn5oa258ZXT9OFuefm1Rj99sl9jd27A+RBn7t32brVoPqes8e1SWxYayjabt4kWyYhP6dVSMbxBze9tan6//3eRa3kYyz/YI0ZQeA7pjOZd9W/vJVunA9yqt9Gyn5UZ3wgM62DX8xtD9fZf+PfayjacRkYTfEvoFN4xOXvCayB41lnO0XpCnbB9TWeuz6ENN83sJcCob2Knz+ufs3NKC32DYNqDt+7B8v0rihlQLz8jh/0FjG2X5BmrITQKu7srw7sVffBgCdZdt+D9pA72lV2aM1lXG2n9XCTdnBJf6pNwpMB4OuY3GrdmMTgN5i2zSglWPQU/dzbGGVMGLHhOcvfh8/aCzjbL8gTdlBD/r3FbfTL+JV+8TY3vqZbibwXfwtto0Der3n7uLjxXl62xvYM8qASe+qvQeN9qBVfkGaspsxaPvqyFZaVAJU6rX6+k6SJDkJUKnXEqBSryVApV5LgNbS0cBo09tw9oOvsvXv39iH/pZUJ8tvp7Z5+1UVkWIJ0Bq62n34weC0ulL5bILZvIBOl5QqJEBr6MDyGUUXG5tVzwrQJiRA51cG5tHDD46p+IJ+9oNfrprr/pn5Zy25xF/tDgYpkxcbg6VfmAfetrNP/2Ww/LtkvxV7nF/EI4d0H3ss+zhd+se7ZxKg8yvrB88+fesDumo61qNltynecrW74ii2+15srJn/l9/629wgIdnPUp8eId0nPvjqZrr0y943CdD5lQOa3AqlgG5mm+KF2zHpb926gc/f5pfwH6f7mBdAvD1Z+mXvmwTo/LoJ0Hw1Wbh7fXPBt/u6js+Q5m9LS6QHTB9n+xy4K3+ULv2y900CdH7lY9Dlt7MB9a7GGaDethsBzfcxI1f3pFve06u7kwCtIXsXb8aDFxsr0UxAT5byu3IHofnH3+aX8B/7+2QvB7MsbL9nEqA1dLUb342bf+29z9Xukg+ou91JbpIMyQlVlub4JinflpawNz/2//xxvI+DOu1hS8e7bxKgtXQSjwYNOHYG6G9+4gNqRowr3jRTypM/zbRU7DHzaSbvsd3H2vhL/3j3TAL0Ljq6lzfUnUiASr2WAJV6LQEq9VoCVOq1BKjUawlQqdcSoFKvJUClXkuASr3W/wNgkbw/3atvLgAAAABJRU5ErkJggg==" /><!-- --></p>
+</div>
+<div id="conclusion" class="section level1">
+<h1>8. Conclusion</h1>
+<p>En RDC, l’utilisation des méthodes contraceptives modernes reste
+faible dans l’ensemble, quel que soit l’âge des femmes. Toutefois,
+certains facteurs influencent significativement l’adoption. Les femmes
+plus instruites, issues de ménages plus riches et vivant en milieu
+urbain, présentent une probabilité nettement plus élevée d’utiliser une
+contraception moderne. <br><br>L’usage est également plus fréquent chez
+les femmes en union, reflet d’une demande liée à la gestion des
+naissances. Ces résultats soulignent que l’éducation, la richesse, le
+milieu de résidence et, dans une moindre mesure, le statut matrimonial,
+constituent les principaux déterminants. <br><br>Le renforcement de
+l’accès, la réduction des barrières économiques et la sensibilisation
+ciblée apparaissent donc essentiels pour accroître la couverture
+contraceptive moderne en RDC.</p>
 </div>
     </section>
   </div>
